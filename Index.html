@@ -599,4 +599,772 @@
   .blog-featured .blog-content h3 { font-size: 22px; }
   .blog-list { display: flex; flex-direction: column; gap: 16px; }
   .blog-mini {
-    background: var(--wh
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: 12px;
+    padding: 20px;
+    text-decoration: none;
+    color: var(--text);
+    display: block;
+    transition: box-shadow .2s;
+  }
+  .blog-mini:hover { box-shadow: var(--shadow-sm); }
+  .blog-mini h3 { font-size: 14px; font-weight: 600; color: var(--navy); line-height: 1.4; margin-bottom: 6px; }
+  .blog-mini span { font-size: 12px; color: var(--gray-400); }
+
+  /* ─── FAQ ─── */
+  .faq-list { max-width: 800px; margin: 0 auto; }
+  .faq-item {
+    border: 1px solid var(--gray-200);
+    border-radius: 12px;
+    margin-bottom: 12px;
+    overflow: hidden;
+  }
+  .faq-q {
+    width: 100%;
+    background: var(--white);
+    border: none;
+    padding: 20px 24px;
+    text-align: left;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--navy);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    transition: background .2s;
+    font-family: var(--font-body);
+  }
+  .faq-q:hover { background: var(--gray-50); }
+  .faq-q .arrow { font-size: 18px; transition: transform .3s; color: var(--teal); flex-shrink: 0; }
+  .faq-item.open .faq-q .arrow { transform: rotate(45deg); }
+  .faq-a {
+    display: none;
+    padding: 0 24px 20px;
+    font-size: 14.5px;
+    color: var(--gray-600);
+    line-height: 1.7;
+    border-top: 1px solid var(--gray-100);
+  }
+  .faq-item.open .faq-a { display: block; padding-top: 16px; }
+
+  /* ─── CTA BANNER ─── */
+  .cta-section {
+    background: linear-gradient(135deg, var(--navy) 0%, #1E4D6B 100%);
+    padding: 80px 0;
+    text-align: center;
+  }
+  .cta-section h2 { font-family: var(--font-display); font-size: 40px; color: var(--white); margin-bottom: 16px; }
+  .cta-section p { font-size: 16px; color: rgba(255,255,255,0.65); margin-bottom: 36px; }
+  .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--navy);
+    color: rgba(255,255,255,0.65);
+    padding: 72px 0 0;
+  }
+  .footer-grid {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 32px;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+    gap: 48px;
+    margin-bottom: 48px;
+  }
+  .footer-brand .logo-name { color: var(--white); font-size: 22px; }
+  .footer-brand .logo-tagline { color: rgba(255,255,255,0.4); }
+  .footer-brand .logo-mark { background: rgba(255,255,255,0.1); }
+  .footer-desc { font-size: 14px; line-height: 1.75; margin-top: 20px; max-width: 300px; }
+  .footer-contact { margin-top: 24px; display: flex; flex-direction: column; gap: 8px; }
+  .footer-contact a { color: var(--gold-light); font-size: 13.5px; text-decoration: none; }
+  .footer-contact a:hover { color: var(--white); }
+  .footer-heading {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 20px;
+  }
+  .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-links a { color: rgba(255,255,255,0.65); text-decoration: none; font-size: 14px; transition: color .2s; }
+  .footer-links a:hover { color: var(--gold-light); }
+  .footer-hospitals { display: flex; flex-direction: column; gap: 20px; }
+  .footer-hosp-item strong { display: block; font-size: 14px; font-weight: 600; color: var(--white); margin-bottom: 4px; }
+  .footer-hosp-item p { font-size: 12.5px; line-height: 1.6; }
+  .footer-hosp-item a { color: var(--gold-light); font-size: 13px; text-decoration: none; }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.08);
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 24px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .footer-bottom a { color: rgba(255,255,255,0.45); text-decoration: none; }
+  .footer-bottom a:hover { color: rgba(255,255,255,0.8); }
+  .footer-bottom-links { display: flex; gap: 20px; }
+
+  /* ─── EMERGENCY FLOAT ─── */
+  .emergency-float {
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+    z-index: 999;
+  }
+  .emergency-float a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #D32F2F;
+    color: var(--white);
+    padding: 14px 22px;
+    border-radius: 40px;
+    font-weight: 700;
+    font-size: 14px;
+    text-decoration: none;
+    box-shadow: 0 6px 24px rgba(211,47,47,0.4);
+    transition: all .2s;
+  }
+  .emergency-float a:hover { background: #B71C1C; transform: scale(1.03); }
+  .emergency-float .pulse-ring {
+    position: absolute;
+    top: -4px; left: -4px; right: -4px; bottom: -4px;
+    border: 2px solid rgba(211,47,47,0.4);
+    border-radius: 44px;
+    animation: ring-pulse 2.5s infinite;
+  }
+  @keyframes ring-pulse { 0%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(1.12)} }
+
+  /* ─── ANIMATIONS ─── */
+  .fade-in { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 1024px) {
+    .hero-inner { grid-template-columns: 1fr; gap: 48px; }
+    .hero-right { display: none; }
+    .about-grid { grid-template-columns: 1fr; }
+    .about-visual { min-height: 300px; }
+    .blog-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 768px) {
+    .hosp-grid, .test-grid { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+    .topbar { display: none; }
+    .quick-bar-inner { display: grid; grid-template-columns: 1fr 1fr; }
+    .quick-item { border-right: none; border-bottom: 1px solid var(--gray-200); }
+    .footer-grid { grid-template-columns: 1fr; }
+    .hero-stats { gap: 20px; }
+    .about-pillars { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="topbar-left">
+      <span>📧 <a href="mailto:info@sahayoghospitals.com">info@sahayoghospitals.com</a></span>
+      <span class="topbar-divider">|</span>
+      <a href="tel:07182250006">📞 Gondia: 07182 250006</a>
+      <span class="topbar-divider">|</span>
+      <a href="tel:01244134444">📞 Gurugram: 0124 4134444</a>
+      <span class="topbar-divider">|</span>
+      <a href="tel:07122754889">📞 Nagpur: 0712 2754889</a>
+    </div>
+    <div class="topbar-right">
+      <a href="#">International Patients</a>
+      <span class="topbar-divider">|</span>
+      <a href="#">Careers</a>
+      <span class="topbar-divider">|</span>
+      <a href="#">Health Corner</a>
+    </div>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="logo">
+      <div class="logo-mark">S</div>
+      <div class="logo-text">
+        <span class="logo-name">Sahayog Hospitals</span>
+        <span class="logo-tagline">Care · Compassion · Commitment</span>
+      </div>
+    </a>
+    <div class="nav-links">
+      <div class="dropdown">
+        <a href="#">About Us</a>
+        <div class="dropdown-menu">
+          <a href="#">Overview</a>
+          <a href="#">Director's Message</a>
+          <a href="#">Our Leadership</a>
+          <a href="#">CSR Activities</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <a href="#">Find Hospital</a>
+        <div class="dropdown-menu">
+          <a href="#">Sahayog Hospital, Gondia</a>
+          <a href="#">Sahayog Hospital, Gurugram</a>
+          <a href="#">Sahayog Hospital, Nagpur</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <a href="#">Specialities</a>
+        <div class="dropdown-menu">
+          <a href="#">Cardiac Sciences</a>
+          <a href="#">Orthopedics & Joint Care</a>
+          <a href="#">Neuro Sciences</a>
+          <a href="#">Cancer Care</a>
+          <a href="#">Gastro Sciences</a>
+          <a href="#">Emergency & Trauma Care</a>
+          <a href="#" style="color:var(--teal);font-weight:600;">View All Specialities →</a>
+        </div>
+      </div>
+      <a href="#">Find A Doctor</a>
+      <a href="#">Sahayog Homecare</a>
+      <a href="#" class="emergency-btn nav-links">🚨 Emergency</a>
+      <a href="#" class="nav-cta">Book Appointment</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge"><span></span>Trusted Multispeciality Care Since 2010</div>
+      <h1>Where <em>Compassion</em> Meets World-Class Medicine</h1>
+      <p>Sahayog Hospitals delivers advanced healthcare to patients who deserve the best — across Gondia, Gurugram, and Nagpur. Expert doctors, cutting-edge technology, and a legacy of trust.</p>
+      <div class="hero-actions">
+        <a href="#" class="btn-primary">📅 Book Appointment</a>
+        <a href="#" class="btn-outline">👨‍⚕️ Find a Doctor</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><div class="num">50,000+</div><div class="lbl">Patients Treated</div></div>
+        <div class="hero-stat"><div class="num">200+</div><div class="lbl">Doctors & Staff</div></div>
+        <div class="hero-stat"><div class="num">3</div><div class="lbl">Hospital Locations</div></div>
+        <div class="hero-stat"><div class="num">27+</div><div class="lbl">Specialities</div></div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-cards">
+        <a href="#" class="hero-quick-card">
+          <div class="card-icon">🏥</div>
+          <h3>24/7 Emergency & Trauma Care</h3>
+          <p>Round-the-clock emergency services with rapid response teams at all locations</p>
+        </a>
+        <div class="hero-cards-row">
+          <a href="#" class="hero-quick-card">
+            <div class="card-icon">🫀</div>
+            <h3>Cardiac Sciences</h3>
+            <p>Advanced cardiac diagnosis and intervention</p>
+          </a>
+          <a href="#" class="hero-quick-card">
+            <div class="card-icon">🦴</div>
+            <h3>Orthopedics</h3>
+            <p>Joint replacement & bone care specialists</p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUICK ACCESS BAR -->
+<div class="quick-bar">
+  <div class="quick-bar-inner">
+    <a href="#" class="quick-item">
+      <div class="quick-icon">🔍</div>
+      <div class="quick-text"><strong>Find A Doctor</strong><span>Search by name or specialty</span></div>
+    </a>
+    <a href="#" class="quick-item">
+      <div class="quick-icon">📅</div>
+      <div class="quick-text"><strong>Book Appointment</strong><span>Online & same-day available</span></div>
+    </a>
+    <a href="#" class="quick-item">
+      <div class="quick-icon">✈️</div>
+      <div class="quick-text"><strong>International Patients</strong><span>End-to-end care coordination</span></div>
+    </a>
+    <a href="#" class="quick-item">
+      <div class="quick-icon">🏠</div>
+      <div class="quick-text"><strong>Sahayog Homecare</strong><span>Medical care at your home</span></div>
+    </a>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="section">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-visual">
+        <div class="about-visual-graphic">
+          <div class="av-card">
+            <div class="num">50K+</div>
+            <div class="lbl">Patients Treated</div>
+          </div>
+          <div class="av-card">
+            <div class="num">200+</div>
+            <div class="lbl">Specialists</div>
+          </div>
+          <div class="av-card">
+            <div class="num">24/7</div>
+            <div class="lbl">Emergency Services</div>
+          </div>
+          <div class="av-card">
+            <div class="num">27+</div>
+            <div class="lbl">Specialities</div>
+          </div>
+          <div class="av-card av-highlight" style="grid-column:span 2;">
+            <div class="num" style="font-size:24px;">3 Hospitals</div>
+            <div class="lbl">Gondia · Gurugram · Nagpur</div>
+          </div>
+        </div>
+      </div>
+      <div class="about-content fade-in">
+        <div class="section-label">Our Story</div>
+        <h2 class="section-title">A Legacy of Trust, Built on Compassion and Care</h2>
+        <p class="section-desc">Sahayog was born with one purpose — to create institutions that empower lives by taking quality services to people who never imagined they could access them.</p>
+        <p class="section-desc" style="margin-top:16px;">We believe that world-class healthcare should not be a privilege. It should be a right. That's why every Sahayog facility is equipped with the latest technology, staffed by experienced specialists, and driven by genuine care for every patient.</p>
+        <div class="about-pillars">
+          <div class="pillar"><div class="pillar-icon">🎯</div><div><strong>Precision Medicine</strong><p>Evidence-based diagnostics and treatment protocols guided by senior specialists</p></div></div>
+          <div class="pillar"><div class="pillar-icon">❤️</div><div><strong>Patient-First Care</strong><p>Every decision is made with patient safety, comfort, and dignity at the forefront</p></div></div>
+          <div class="pillar"><div class="pillar-icon">🔬</div><div><strong>Advanced Technology</strong><p>State-of-the-art equipment for accurate diagnosis and minimally invasive treatment</p></div></div>
+          <div class="pillar"><div class="pillar-icon">🌍</div><div><strong>Community Outreach</strong><p>Regular health camps, CSR activities, and awareness programs for underserved communities</p></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPECIALITIES -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-header-row">
+        <div>
+          <div class="section-label">Our Expertise</div>
+          <h2 class="section-title">Excellence in Every Speciality</h2>
+          <p class="section-desc">Comprehensive care across 27+ medical specialities, delivered by experienced specialists using the latest techniques.</p>
+        </div>
+        <a href="#" class="view-all">View All Specialities →</a>
+      </div>
+    </div>
+    <div class="spec-grid fade-in">
+      <a href="#" class="spec-card"><span class="spec-icon">🫀</span><h3>Cardiac Sciences</h3><p>Advanced heart care & intervention</p></a>
+      <a href="#" class="spec-card"><span class="spec-icon">🦴</span><h3>Orthopedics & Joint Care</h3><p>Bone, joint & muscle specialists</p></a>
+      <a href="#" class="spec-card"><span class="spec-icon">🧠</span><h3>Neuro Sciences</h3><p>Brain & nervous system care</p></a>
+      <a href="#" class="spec-card"><span class="spec-icon">🍼</span><h3>Neonatology & Pediatrics</h3><p>Expert newborn & child care</p></a>
+      <a href="#" class="spec-card"><span class="spec-icon">🔬</span><h3>Cancer Care</h3><p>Comprehensive oncology services</p></a>
+      <a href="#" class="spec-card"><span class="spec-icon">🤰</span><h3>Obstetrics & Gynecology</h3><p>Women's health & maternity</p></a>
+      <a href="#" class="spec-card"><span class="spec-icon">🫁</span><h3>Gastro Sciences</h3><p>Digestive & liver care</p></a>
+      <a href="#" class="spec-card"><span class="spec-icon">👁️</span><h3>Eye Care</h3><p>Advanced ophthalmology</p></a>
+      <a href="#" class="spec-card"><span class="spec-icon">🦷</span><h3>Dental Care</h3><p>Complete oral health services</p></a>
+      <a href="#" class="spec-card"><span class="spec-icon">🩻</span><h3>Radiology & Imaging</h3><p>State-of-the-art diagnostics</p></a>
+      <a href="#" class="spec-card"><span class="spec-icon">🏃</span><h3>Physiotherapy</h3><p>Rehabilitation & recovery</p></a>
+      <a href="#" class="spec-card"><span class="spec-icon">🚨</span><h3>Emergency & Trauma</h3><p>24/7 urgent care</p></a>
+    </div>
+  </div>
+</section>
+
+<!-- HOSPITALS -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-header-row">
+        <div>
+          <div class="section-label">Our Locations</div>
+          <h2 class="section-title">A World of Care, Just For You</h2>
+          <p class="section-desc">Three state-of-the-art facilities across India, each equipped with advanced technology and expert medical teams.</p>
+        </div>
+      </div>
+    </div>
+    <div class="hosp-grid fade-in">
+      <div class="hosp-card">
+        <div class="hosp-header">
+          <div class="hosp-city">Gondia</div>
+          <h3>Sahayog Hospital, Gondia</h3>
+          <div class="hosp-state">Maharashtra</div>
+        </div>
+        <div class="hosp-body">
+          <div class="hosp-addr">Rani Avantibai Square, Ring Road, Gondia – 441614</div>
+          <div class="hosp-contact">
+            <a href="tel:07182250006">📞 07182 250006 / 07182 250007</a>
+            <a href="https://api.whatsapp.com/send?phone=918888001426">💬 WhatsApp: +91 88880 01426</a>
+          </div>
+          <div class="hosp-actions">
+            <a href="#" class="btn-sm btn-sm-primary">Book Appointment</a>
+            <a href="https://maps.app.goo.gl/UPe2nkz5TumTAUmU6" class="btn-sm btn-sm-outline">📍 Directions</a>
+          </div>
+        </div>
+      </div>
+      <div class="hosp-card">
+        <div class="hosp-header">
+          <div class="hosp-city">Gurugram</div>
+          <h3>Sahayog Hospital, Gurugram</h3>
+          <div class="hosp-state">Haryana</div>
+        </div>
+        <div class="hosp-body">
+          <div class="hosp-addr">Plot No. NH4, Opp. Huda Market, Sector 46, Gurugram – 122002</div>
+          <div class="hosp-contact">
+            <a href="tel:01244134444">📞 0124 4134444 / 9310-01-9310</a>
+          </div>
+          <div class="hosp-actions">
+            <a href="#" class="btn-sm btn-sm-primary">Book Appointment</a>
+            <a href="https://maps.app.goo.gl/yk6qRKbDY18rn8Vb8" class="btn-sm btn-sm-outline">📍 Directions</a>
+          </div>
+        </div>
+      </div>
+      <div class="hosp-card">
+        <div class="hosp-header">
+          <div class="hosp-city">Nagpur</div>
+          <h3>Sahayog Hospital, Nagpur</h3>
+          <div class="hosp-state">Maharashtra</div>
+        </div>
+        <div class="hosp-body">
+          <div class="hosp-addr">24A & 25, Great Nag Road, Baidyanath Square, Nagpur – 440009</div>
+          <div class="hosp-contact">
+            <a href="tel:07122754889">📞 0712 2754889</a>
+            <a href="https://api.whatsapp.com/send?phone=919226571494">💬 WhatsApp: +91 92265 71494</a>
+          </div>
+          <div class="hosp-actions">
+            <a href="#" class="btn-sm btn-sm-primary">Book Appointment</a>
+            <a href="https://maps.app.goo.gl/FZJTgMyGDmdThBqP7" class="btn-sm btn-sm-outline">📍 Directions</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DOCTORS -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-header-row">
+        <div>
+          <div class="section-label">Our Team</div>
+          <h2 class="section-title">Consult Our Specialists</h2>
+          <p class="section-desc">Highly qualified doctors with years of experience, committed to providing the best possible care.</p>
+        </div>
+        <a href="#" class="view-all">View All Doctors →</a>
+      </div>
+    </div>
+    <div class="doc-grid fade-in">
+      <a href="#" class="doc-card">
+        <div class="doc-photo"><div class="doc-initials">AM</div></div>
+        <div class="doc-info">
+          <span class="doc-specialty">Emergency & Trauma Care</span>
+          <h3>Dr. Aditya Mahajan</h3>
+          <div class="qual">MBBS, MD</div>
+          <div class="location">📍 Gondia</div>
+        </div>
+      </a>
+      <a href="#" class="doc-card">
+        <div class="doc-photo"><div class="doc-initials">AA</div></div>
+        <div class="doc-info">
+          <span class="doc-specialty">Orthopedics & Joint Care</span>
+          <h3>Dr. Aaditya Jagdale</h3>
+          <div class="qual">MBBS, MS</div>
+          <div class="location">📍 Gondia</div>
+        </div>
+      </a>
+      <a href="#" class="doc-card">
+        <div class="doc-photo"><div class="doc-initials">AR</div></div>
+        <div class="doc-info">
+          <span class="doc-specialty">Cardiac Sciences</span>
+          <h3>Dr. Arshish Dhanraj Raut</h3>
+          <div class="qual">MBBS, MD, DNB</div>
+          <div class="location">📍 Gondia</div>
+        </div>
+      </a>
+      <a href="#" class="doc-card">
+        <div class="doc-photo"><div class="doc-initials">BK</div></div>
+        <div class="doc-info">
+          <span class="doc-specialty">Minimal Access Surgery</span>
+          <h3>Dr. Bhagwan Kamble</h3>
+          <div class="qual">MBBS, MS, FMAS</div>
+          <div class="location">📍 Gondia</div>
+        </div>
+      </a>
+      <a href="#" class="doc-card">
+        <div class="doc-photo"><div class="doc-initials">AT</div></div>
+        <div class="doc-info">
+          <span class="doc-specialty">Eye Care</span>
+          <h3>Dr. Aastha Tanddon Santakke</h3>
+          <div class="qual">MBBS, DNB, FCRS</div>
+          <div class="location">📍 Gondia</div>
+        </div>
+      </a>
+      <a href="#" class="doc-card">
+        <div class="doc-photo"><div class="doc-initials">CJ</div></div>
+        <div class="doc-info">
+          <span class="doc-specialty">Orthopedics & Joint Care</span>
+          <h3>Dr. Chandrashekhar Jaiswal</h3>
+          <div class="qual">MBBS, MS</div>
+          <div class="location">📍 Gondia</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-header-row">
+        <div>
+          <div class="section-label">Patient Stories</div>
+          <h2 class="section-title">What Our Patients Say</h2>
+          <p class="section-desc">Real stories from real patients — the greatest testament to the care we deliver.</p>
+        </div>
+        <a href="#" class="view-all">View All Stories →</a>
+      </div>
+    </div>
+    <div class="test-grid fade-in">
+      <div class="test-card">
+        <div class="test-quote">"</div>
+        <div class="test-stars">★★★★★</div>
+        <p class="test-text">After my hip replacement surgery at Sahayog, I can walk independently again for the first time in years. The orthopaedic team was exceptional — professional, caring, and always available to answer my concerns.</p>
+        <div class="test-patient">
+          <div class="test-avatar">RK</div>
+          <div>
+            <strong>Ramesh Kumar</strong>
+            <span>Hip Replacement Patient</span>
+          </div>
+        </div>
+        <a href="https://youtu.be/2PJ2WVwe80Q" class="test-video-badge">▶ Watch Story</a>
+      </div>
+      <div class="test-card">
+        <div class="test-quote">"</div>
+        <div class="test-stars">★★★★★</div>
+        <p class="test-text">Our premature baby was born at 35 weeks and faced multiple complications. The NICU team at Sahayog fought for our child every single day. We brought home a healthy baby because of their dedication.</p>
+        <div class="test-patient">
+          <div class="test-avatar">PS</div>
+          <div>
+            <strong>Priya Sharma</strong>
+            <span>NICU Patient's Mother</span>
+          </div>
+        </div>
+        <a href="https://youtu.be/SgCHYKXj9H4" class="test-video-badge">▶ Watch Story</a>
+      </div>
+      <div class="test-card">
+        <div class="test-quote">"</div>
+        <div class="test-stars">★★★★★</div>
+        <p class="test-text">I was told by another hospital that my father needed risky open surgery. The surgeons at Sahayog performed a minimally invasive procedure and he was home in 3 days. Truly skilled hands, truly compassionate hearts.</p>
+        <div class="test-patient">
+          <div class="test-avatar">MV</div>
+          <div>
+            <strong>Meera Verma</strong>
+            <span>Relative of Surgical Patient</span>
+          </div>
+        </div>
+        <a href="https://youtu.be/EQM_dM2QPK8" class="test-video-badge">▶ Watch Story</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HEALTH CORNER -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-header-row">
+        <div>
+          <div class="section-label">Health Corner</div>
+          <h2 class="section-title">Expert Health Insights</h2>
+          <p class="section-desc">Stay informed with the latest medical knowledge from our specialist doctors.</p>
+        </div>
+        <a href="#" class="view-all">View All Articles →</a>
+      </div>
+    </div>
+    <div class="blog-grid fade-in">
+      <a href="#" class="blog-featured">
+        <div class="blog-img blog-featured-img">🫁</div>
+        <div class="blog-content">
+          <span class="blog-tag">Health Care</span>
+          <h3>A Simple Guide to Gallstones: Laparoscopic Surgery, Treatment and Recovery Tips</h3>
+          <p>Understanding your treatment options for gallstones — from diagnosis to a full laparoscopic recovery plan curated by our specialists.</p>
+          <div class="blog-date">Oct 8, 2025</div>
+        </div>
+      </a>
+      <div class="blog-list">
+        <a href="#" class="blog-mini">
+          <span class="blog-tag" style="font-size:10px;padding:3px 8px;">Urology</span>
+          <h3>Kidney Stones: Causes, Symptoms, Treatment and Prevention</h3>
+          <span>Sep 2025</span>
+        </a>
+        <a href="#" class="blog-mini">
+          <span class="blog-tag" style="font-size:10px;padding:3px 8px;">Cardiology</span>
+          <h3>Understanding Hypertension: Symptoms, Causes and Practical Tips for Control</h3>
+          <span>Aug 2025</span>
+        </a>
+        <a href="#" class="blog-mini">
+          <span class="blog-tag" style="font-size:10px;padding:3px 8px;">Gynaecology</span>
+          <h3>Everything You Need to Know About Laparoscopic Gynaecology</h3>
+          <span>Jul 2025</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section">
+  <div class="container">
+    <div class="section-header" style="text-align:center; margin-bottom:48px;">
+      <div class="section-label" style="justify-content:center;">Quick Answers</div>
+      <h2 class="section-title" style="text-align:center;">Frequently Asked Questions</h2>
+    </div>
+    <div class="faq-list fade-in">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Where are your hospitals located? <span class="arrow">+</span></button>
+        <div class="faq-a">Sahayog Hospitals currently operates in Gondia (Maharashtra), Gurugram (Haryana), and Nagpur (Maharashtra), with further expansion planned to Pune and Chandrapur.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Do you provide 24×7 emergency services? <span class="arrow">+</span></button>
+        <div class="faq-a">Yes, our Emergency & Trauma Department operates 24 hours a day, 7 days a week at all our hospital locations, with a dedicated team of specialists always on standby.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">How can I book an appointment with a doctor? <span class="arrow">+</span></button>
+        <div class="faq-a">You can book an appointment by calling our reception, visiting the front desk, or through our website's online booking system. Online appointments are available for most specialities.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Do you accept walk-in patients without prior appointments? <span class="arrow">+</span></button>
+        <div class="faq-a">Yes, walk-ins are welcome, especially for emergency care. However, prior booking is recommended for OPD consultations to reduce waiting time and ensure timely service.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Do you provide second opinions for medical conditions? <span class="arrow">+</span></button>
+        <div class="faq-a">Absolutely. You can consult our expert specialists for a second opinion on any diagnosis or treatment recommendation. We encourage informed decision-making for all our patients.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Do you have international patient services? <span class="arrow">+</span></button>
+        <div class="faq-a">Yes, Sahayog Hospitals welcomes international patients and provides dedicated support including appointment coordination, medical visa assistance, and a seamless care experience throughout their visit.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA SECTION -->
+<section class="cta-section">
+  <div class="container">
+    <h2>Ready to Take the First Step Towards Better Health?</h2>
+    <p>Our team of expert doctors and compassionate care staff are here for you — every step of the way.</p>
+    <div class="cta-buttons">
+      <a href="#" class="btn-primary" style="font-size:16px;padding:16px 32px;">📅 Book an Appointment</a>
+      <a href="#" class="btn-outline" style="font-size:16px;padding:16px 32px;">📞 Call Us Now</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="logo" style="margin-bottom:4px;">
+        <div class="logo-mark">S</div>
+        <div class="logo-text">
+          <span class="logo-name" style="color:#fff;font-size:20px;">Sahayog Hospitals</span>
+          <span class="logo-tagline" style="color:rgba(255,255,255,0.4);">Care · Compassion · Commitment</span>
+        </div>
+      </div>
+      <p class="footer-desc">Born with one purpose — to empower lives by taking quality healthcare to people who never imagined they could access it.</p>
+      <div class="footer-contact">
+        <a href="mailto:info@sahayoghospitals.com">✉ info@sahayoghospitals.com</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-heading">Quick Links</div>
+      <ul class="footer-links">
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Find A Doctor</a></li>
+        <li><a href="#">International Patients</a></li>
+        <li><a href="#">Sahayog Homecare</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">News & Events</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-heading">Specialities</div>
+      <ul class="footer-links">
+        <li><a href="#">Cardiac Sciences</a></li>
+        <li><a href="#">Orthopedics</a></li>
+        <li><a href="#">Neuro Sciences</a></li>
+        <li><a href="#">Cancer Care</a></li>
+        <li><a href="#">Gastro Sciences</a></li>
+        <li><a href="#">Emergency Care</a></li>
+        <li><a href="#">View All →</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-heading">Our Hospitals</div>
+      <div class="footer-hospitals">
+        <div class="footer-hosp-item">
+          <strong>Sahayog Hospital, Gondia</strong>
+          <p>Rani Avantibai Square, Ring Road, Gondia – 441614</p>
+          <a href="tel:07182250006">07182 250006</a>
+        </div>
+        <div class="footer-hosp-item">
+          <strong>Sahayog Hospital, Gurugram</strong>
+          <p>Plot No. NH4, Sector 46, Gurugram – 122002</p>
+          <a href="tel:01244134444">0124 4134444</a>
+        </div>
+        <div class="footer-hosp-item">
+          <strong>Sahayog Hospital, Nagpur</strong>
+          <p>24A & 25, Great Nag Road, Nagpur – 440009</p>
+          <a href="tel:07122754889">0712 2754889</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Sahayog Group of Hospitals. All rights reserved.</span>
+    <div class="footer-bottom-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Disclaimer</a>
+      <a href="#">Terms & Conditions</a>
+    </div>
+  </div>
+</footer>
+
+<!-- EMERGENCY FLOAT -->
+<div class="emergency-float">
+  <div class="pulse-ring"></div>
+  <a href="tel:07182250006">🚨 Emergency: 07182 250006</a>
+</div>
+
+<script>
+  function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        e.target.style.transitionDelay = (i * 0.05) + 's';
+        e.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
