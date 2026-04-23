@@ -3,1120 +3,2018 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sahayog Hospitals | A Legacy of Trust, Built on Compassion</title>
+<title>Sahayog Hospitals — Compassion Meets Excellence</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
-    --navy: #0A2342;
-    --navy-light: #1A3A5C;
-    --teal: #0D7C66;
-    --teal-light: #12A688;
-    --gold: #C9962A;
-    --gold-light: #E8B84B;
-    --cream: #F7F4EE;
-    --white: #FFFFFF;
-    --gray-50: #F8F9FA;
-    --gray-100: #F1F3F5;
-    --gray-200: #E9ECEF;
-    --gray-400: #ADB5BD;
-    --gray-600: #6C757D;
-    --gray-800: #343A40;
-    --text: #1A1F2E;
+    --navy: #0a2342;
+    --navy-mid: #133356;
+    --blue: #1565c0;
+    --blue-light: #1e88e5;
+    --blue-pale: #e3f2fd;
+    --blue-ultra: #f0f7ff;
+    --teal: #00695c;
+    --teal-light: #26a69a;
+    --red: #c62828;
+    --gold: #f9a825;
+    --white: #ffffff;
+    --off-white: #f8fafc;
+    --gray-100: #f1f5f9;
+    --gray-200: #e2e8f0;
+    --gray-400: #94a3b8;
+    --gray-600: #475569;
+    --gray-800: #1e293b;
     --font-display: 'Playfair Display', Georgia, serif;
     --font-body: 'DM Sans', system-ui, sans-serif;
-    --shadow-sm: 0 2px 8px rgba(10,35,66,0.08);
-    --shadow-md: 0 4px 20px rgba(10,35,66,0.12);
-    --shadow-lg: 0 8px 40px rgba(10,35,66,0.16);
+    --shadow-sm: 0 1px 3px rgba(10,35,66,0.08), 0 1px 2px rgba(10,35,66,0.06);
+    --shadow-md: 0 4px 16px rgba(10,35,66,0.10), 0 2px 8px rgba(10,35,66,0.07);
+    --shadow-lg: 0 10px 40px rgba(10,35,66,0.13), 0 4px 16px rgba(10,35,66,0.09);
+    --shadow-xl: 0 20px 60px rgba(10,35,66,0.18);
+    --radius: 12px;
+    --radius-lg: 20px;
   }
-  html { scroll-behavior: smooth; }
-  body { font-family: var(--font-body); color: var(--text); background: var(--white); overflow-x: hidden; }
 
-  /* ─── TOP BAR ─── */
-  .topbar {
-    background: var(--navy);
-    color: rgba(255,255,255,0.75);
-    font-size: 12.5px;
-    padding: 8px 0;
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; font-size: 16px; }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--gray-800);
+    background: var(--white);
+    line-height: 1.6;
+    overflow-x: hidden;
   }
-  .topbar-inner {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 0 32px;
+
+  /* ─── EMERGENCY BANNER ─── */
+  .emergency-banner {
+    background: linear-gradient(90deg, #b71c1c 0%, #c62828 40%, #b71c1c 100%);
+    color: white;
+    text-align: center;
+    padding: 10px 20px;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    position: relative;
+    z-index: 200;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
-    gap: 8px;
+    justify-content: center;
+    gap: 16px;
   }
-  .topbar a { color: rgba(255,255,255,0.75); text-decoration: none; transition: color .2s; }
-  .topbar a:hover { color: var(--gold-light); }
-  .topbar-left { display: flex; gap: 24px; }
-  .topbar-right { display: flex; gap: 20px; align-items: center; }
-  .topbar-divider { color: rgba(255,255,255,0.2); }
+  .emergency-banner .pulse-dot {
+    width: 8px; height: 8px;
+    background: #ffcdd2;
+    border-radius: 50%;
+    display: inline-block;
+    animation: pulse 1.5s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%,100% { opacity:1; transform:scale(1); }
+    50% { opacity:0.5; transform:scale(1.5); }
+  }
+  .emergency-banner a { color: #ffcdd2; text-decoration: none; font-weight: 600; }
 
-  /* ─── NAV ─── */
+  /* ─── NAVBAR ─── */
   nav {
     position: sticky;
     top: 0;
     z-index: 100;
-    background: var(--white);
+    background: rgba(255,255,255,0.97);
+    backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--gray-200);
-    box-shadow: var(--shadow-sm);
+    transition: box-shadow 0.3s;
   }
+  nav.scrolled { box-shadow: var(--shadow-md); }
   .nav-inner {
     max-width: 1280px;
     margin: 0 auto;
-    padding: 0 32px;
+    padding: 0 24px;
+    height: 68px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    height: 72px;
+    gap: 0;
   }
-  .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    flex-shrink: 0;
+    margin-right: 32px;
+  }
   .logo-mark {
-    width: 44px; height: 44px;
-    background: var(--navy);
+    width: 40px; height: 40px;
+    background: linear-gradient(135deg, var(--blue) 0%, var(--navy) 100%);
     border-radius: 10px;
-    display: flex; align-items: center; justify-content: center;
-    font-family: var(--font-display);
-    font-size: 22px;
-    color: var(--gold-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 18px;
     font-weight: 700;
-    letter-spacing: -1px;
+    font-family: var(--font-display);
   }
-  .logo-text { display: flex; flex-direction: column; }
+  .logo-text { line-height: 1.1; }
   .logo-name {
     font-family: var(--font-display);
-    font-size: 20px;
-    font-weight: 700;
+    font-size: 18px;
     color: var(--navy);
-    line-height: 1.1;
-    letter-spacing: -0.3px;
+    font-weight: 600;
+    display: block;
   }
-  .logo-tagline {
-    font-size: 10px;
-    letter-spacing: 2px;
-    color: var(--teal);
-    text-transform: uppercase;
-    font-weight: 500;
+  .logo-sub { font-size: 10px; color: var(--gray-400); text-transform: uppercase; letter-spacing: 1px; }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex: 1;
+    list-style: none;
   }
-  .nav-links { display: flex; align-items: center; gap: 4px; }
   .nav-links a {
     text-decoration: none;
-    color: var(--gray-800);
+    color: var(--gray-600);
     font-size: 14px;
     font-weight: 500;
-    padding: 8px 14px;
+    padding: 8px 12px;
     border-radius: 8px;
-    transition: all .2s;
-    position: relative;
+    transition: color 0.2s, background 0.2s;
+    white-space: nowrap;
   }
-  .nav-links a:hover { color: var(--navy); background: var(--gray-50); }
-  .nav-links .dropdown { position: relative; }
-  .nav-links .dropdown > a::after { content: ' ▾'; font-size: 10px; }
+  .nav-links a:hover { color: var(--blue); background: var(--blue-ultra); }
+
+  .nav-dropdown { position: relative; }
+  .nav-dropdown > a::after {
+    content: ' ▾';
+    font-size: 10px;
+    opacity: 0.6;
+  }
   .dropdown-menu {
     display: none;
     position: absolute;
     top: calc(100% + 8px);
     left: 0;
-    background: var(--white);
+    background: white;
     border: 1px solid var(--gray-200);
-    border-radius: 12px;
+    border-radius: var(--radius);
     box-shadow: var(--shadow-lg);
-    min-width: 240px;
-    padding: 8px 0;
-    z-index: 200;
+    min-width: 220px;
+    padding: 8px;
+    z-index: 999;
   }
-  .dropdown:hover .dropdown-menu { display: block; }
+  .nav-dropdown:hover .dropdown-menu { display: block; animation: fadeDown 0.2s ease; }
+  @keyframes fadeDown { from{opacity:0;transform:translateY(-8px)} to{opacity:1;transform:translateY(0)} }
   .dropdown-menu a {
     display: block;
-    padding: 10px 20px;
-    border-radius: 0;
-    font-size: 13.5px;
-    color: var(--gray-800);
+    padding: 8px 12px;
+    font-size: 13px;
+    color: var(--gray-600);
+    border-radius: 8px;
   }
-  .dropdown-menu a:hover { background: var(--gray-50); color: var(--teal); padding-left: 24px; }
+  .dropdown-menu a:hover { color: var(--blue); background: var(--blue-ultra); }
+
+  .dropdown-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; min-width: 600px; gap: 4px; }
+
   .nav-cta {
-    background: var(--teal) !important;
-    color: var(--white) !important;
-    padding: 10px 22px !important;
-    border-radius: 8px !important;
-    font-weight: 600 !important;
-    font-size: 13.5px !important;
-    letter-spacing: 0.2px;
-    transition: background .2s !important;
+    display: flex;
+    gap: 10px;
+    margin-left: auto;
+    flex-shrink: 0;
   }
-  .nav-cta:hover { background: var(--teal-light) !important; }
-  .emergency-btn {
-    background: var(--gold) !important;
-    color: var(--white) !important;
-    padding: 10px 18px !important;
-    border-radius: 8px !important;
-    font-weight: 600 !important;
-    font-size: 13px !important;
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 9px 18px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: var(--font-body);
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+    border: none;
   }
-  .emergency-btn:hover { background: var(--gold-light) !important; }
+  .btn-outline {
+    border: 1.5px solid var(--blue);
+    color: var(--blue);
+    background: transparent;
+  }
+  .btn-outline:hover { background: var(--blue-ultra); }
+  .btn-primary {
+    background: linear-gradient(135deg, var(--blue) 0%, var(--navy) 100%);
+    color: white;
+  }
+  .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(21,101,192,0.35); }
+  .btn-sm { padding: 7px 14px; font-size: 13px; }
 
   /* ─── HERO ─── */
   .hero {
-    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 50%, #1E4D6B 100%);
-    min-height: 88vh;
+    position: relative;
+    height: 92vh;
+    min-height: 600px;
+    overflow: hidden;
     display: flex;
     align-items: center;
-    position: relative;
-    overflow: hidden;
   }
-  .hero::before {
-    content: '';
+
+  .hero-bg {
     position: absolute;
     inset: 0;
-    background: url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='30' cy='30' r='1' fill='rgba(255,255,255,0.04)'/%3E%3C/svg%3E");
-    opacity: 0.5;
+    background: linear-gradient(135deg, var(--navy) 0%, #0d2e55 35%, #1a4a7c 65%, #1565c0 100%);
   }
-  .hero-inner {
+
+  /* Heartbeat SVG animation */
+  .hero-heartbeat {
+    position: absolute;
+    inset: 0;
+    opacity: 0.07;
+    overflow: hidden;
+  }
+  .heartbeat-line {
+    stroke-dasharray: 2000;
+    stroke-dashoffset: 2000;
+    animation: drawLine 4s ease-in-out infinite;
+  }
+  @keyframes drawLine {
+    0% { stroke-dashoffset: 2000; }
+    50% { stroke-dashoffset: 0; }
+    100% { stroke-dashoffset: -2000; }
+  }
+
+  /* Particle dots */
+  .hero-particles {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+  }
+  .particle {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.4);
+    animation: float linear infinite;
+  }
+  @keyframes float {
+    0% { transform: translateY(0) translateX(0); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 0.5; }
+    100% { transform: translateY(-120vh) translateX(40px); opacity: 0; }
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
     max-width: 1280px;
     margin: 0 auto;
-    padding: 80px 32px;
+    padding: 0 24px;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 80px;
+    gap: 60px;
     align-items: center;
-    position: relative;
-    z-index: 1;
+    width: 100%;
   }
+
   .hero-badge {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: rgba(201,150,42,0.2);
-    border: 1px solid rgba(201,150,42,0.4);
-    color: var(--gold-light);
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: rgba(255,255,255,0.9);
+    padding: 6px 14px;
+    border-radius: 50px;
     font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 1.5px;
+    letter-spacing: 0.5px;
     text-transform: uppercase;
-    padding: 6px 16px;
-    border-radius: 20px;
-    margin-bottom: 28px;
-  }
-  .hero-badge span { width: 6px; height: 6px; background: var(--gold-light); border-radius: 50%; animation: pulse 2s infinite; }
-  @keyframes pulse { 0%,100%{opacity:1}50%{opacity:.4} }
-  .hero h1 {
-    font-family: var(--font-display);
-    font-size: clamp(38px, 4vw, 58px);
-    font-weight: 700;
-    color: var(--white);
-    line-height: 1.15;
-    letter-spacing: -0.5px;
+    font-weight: 500;
     margin-bottom: 24px;
+    animation: fadeUp 0.8s ease both;
   }
-  .hero h1 em { font-style: normal; color: var(--gold-light); }
-  .hero p {
-    font-size: 17px;
-    color: rgba(255,255,255,0.7);
-    line-height: 1.75;
-    margin-bottom: 40px;
-    max-width: 500px;
-  }
-  .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
-  .btn-primary {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: var(--teal);
-    color: var(--white);
-    padding: 14px 28px;
-    border-radius: 10px;
-    font-weight: 600;
-    font-size: 15px;
-    text-decoration: none;
-    transition: all .2s;
-    border: 2px solid transparent;
-  }
-  .btn-primary:hover { background: var(--teal-light); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(13,124,102,0.3); }
-  .btn-outline {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: transparent;
-    color: var(--white);
-    padding: 14px 28px;
-    border-radius: 10px;
-    font-weight: 600;
-    font-size: 15px;
-    text-decoration: none;
-    border: 2px solid rgba(255,255,255,0.3);
-    transition: all .2s;
-  }
-  .btn-outline:hover { border-color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.08); }
-  .hero-stats {
-    display: flex;
-    gap: 32px;
-    margin-top: 48px;
-    padding-top: 40px;
-    border-top: 1px solid rgba(255,255,255,0.1);
-  }
-  .hero-stat .num {
+  .hero-tagline {
     font-family: var(--font-display);
-    font-size: 36px;
-    font-weight: 700;
-    color: var(--gold-light);
-    line-height: 1;
+    font-size: clamp(36px, 5vw, 62px);
+    color: white;
+    line-height: 1.12;
+    font-weight: 500;
+    margin-bottom: 20px;
+    animation: fadeUp 0.8s ease 0.15s both;
   }
-  .hero-stat .lbl { font-size: 13px; color: rgba(255,255,255,0.55); margin-top: 4px; }
-  .hero-right { position: relative; }
-  .hero-cards { display: grid; grid-template-rows: auto auto; gap: 20px; }
-  .hero-quick-card {
-    background: rgba(255,255,255,0.07);
-    border: 1px solid rgba(255,255,255,0.12);
-    border-radius: 16px;
-    padding: 24px 28px;
-    backdrop-filter: blur(12px);
-    color: var(--white);
-    transition: all .3s;
+  .hero-tagline span { color: #90caf9; }
+  .hero-sub {
+    color: rgba(255,255,255,0.75);
+    font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: 36px;
+    animation: fadeUp 0.8s ease 0.3s both;
+    max-width: 460px;
+  }
+  .hero-actions {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    animation: fadeUp 0.8s ease 0.45s both;
+  }
+  .btn-hero-primary {
+    background: white;
+    color: var(--navy);
+    font-weight: 600;
+    padding: 14px 28px;
+    font-size: 15px;
+    border-radius: 10px;
+    box-shadow: 0 8px 30px rgba(255,255,255,0.2);
+  }
+  .btn-hero-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(255,255,255,0.3); }
+  .btn-hero-outline {
+    background: rgba(255,255,255,0.1);
+    color: white;
+    border: 1.5px solid rgba(255,255,255,0.4);
+    font-weight: 500;
+    padding: 14px 28px;
+    font-size: 15px;
+    border-radius: 10px;
+    backdrop-filter: blur(4px);
+  }
+  .btn-hero-outline:hover { background: rgba(255,255,255,0.18); }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-right {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    animation: fadeUp 0.8s ease 0.3s both;
+  }
+
+  /* Quick action cards */
+  .quick-actions {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+  .quick-card {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    backdrop-filter: blur(8px);
+    border-radius: var(--radius);
+    padding: 16px;
+    text-align: center;
+    color: white;
     cursor: pointer;
+    transition: all 0.25s;
     text-decoration: none;
+  }
+  .quick-card:hover {
+    background: rgba(255,255,255,0.2);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+  }
+  .quick-card-icon {
+    font-size: 24px;
+    margin-bottom: 8px;
     display: block;
   }
-  .hero-quick-card:hover { background: rgba(255,255,255,0.12); transform: translateY(-2px); }
-  .hero-quick-card h3 { font-size: 16px; font-weight: 600; margin-bottom: 6px; color: var(--white); }
-  .hero-quick-card p { font-size: 13.5px; color: rgba(255,255,255,0.6); }
-  .hero-quick-card .card-icon { font-size: 28px; margin-bottom: 14px; }
-  .hero-cards-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .quick-card-label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    display: block;
+    color: rgba(255,255,255,0.9);
+  }
+  .quick-card-sub {
+    font-size: 10px;
+    color: rgba(255,255,255,0.6);
+    margin-top: 2px;
+    display: block;
+  }
 
-  /* ─── QUICK ACCESS BAR ─── */
-  .quick-bar {
-    background: var(--white);
-    box-shadow: var(--shadow-md);
+  /* Stats card in hero */
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+  .hero-stat {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: var(--radius);
+    padding: 14px;
+    text-align: center;
+  }
+  .hero-stat-num {
+    font-family: var(--font-display);
+    font-size: 26px;
+    color: white;
+    font-weight: 600;
+    display: block;
+  }
+  .hero-stat-label {
+    font-size: 11px;
+    color: rgba(255,255,255,0.6);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+  }
+
+  /* ─── SEARCH BAR ─── */
+  .search-section {
+    background: white;
+    padding: 0;
     position: relative;
     z-index: 10;
   }
-  .quick-bar-inner {
-    max-width: 1280px;
+  .search-wrapper {
+    max-width: 900px;
     margin: 0 auto;
-    padding: 0 32px;
-    display: flex;
+    padding: 0 24px;
+    transform: translateY(-36px);
   }
-  .quick-item {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    padding: 20px 24px;
-    text-decoration: none;
-    color: var(--text);
-    border-right: 1px solid var(--gray-200);
-    transition: all .2s;
+  .search-box {
+    background: white;
+    border-radius: 16px;
+    box-shadow: var(--shadow-xl);
+    padding: 24px;
+    border: 1px solid var(--gray-200);
   }
-  .quick-item:last-child { border-right: none; }
-  .quick-item:hover { background: var(--gray-50); color: var(--teal); }
-  .quick-icon {
-    width: 44px; height: 44px;
-    background: var(--gray-100);
-    border-radius: 10px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 20px;
-    flex-shrink: 0;
-    transition: background .2s;
-  }
-  .quick-item:hover .quick-icon { background: rgba(13,124,102,0.1); }
-  .quick-text strong { display: block; font-size: 14px; font-weight: 600; }
-  .quick-text span { font-size: 12px; color: var(--gray-600); }
-
-  /* ─── SECTION COMMON ─── */
-  .section { padding: 96px 0; }
-  .section-alt { background: var(--cream); }
-  .container { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
-  .section-label {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 2.5px;
+  .search-box h3 {
+    font-size: 13px;
     text-transform: uppercase;
-    color: var(--teal);
-    margin-bottom: 16px;
+    letter-spacing: 1px;
+    color: var(--gray-400);
+    margin-bottom: 14px;
+    font-weight: 500;
   }
-  .section-label::before { content: ''; display: block; width: 24px; height: 2px; background: var(--teal); }
-  .section-title {
-    font-family: var(--font-display);
-    font-size: clamp(30px, 3vw, 44px);
-    font-weight: 700;
-    color: var(--navy);
-    line-height: 1.2;
-    letter-spacing: -0.3px;
-    margin-bottom: 16px;
+  .search-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr auto;
+    gap: 12px;
+    align-items: end;
   }
-  .section-desc { font-size: 16px; color: var(--gray-600); line-height: 1.75; max-width: 560px; }
-  .section-header { margin-bottom: 56px; }
-  .section-header-row { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; }
-  .view-all {
-    display: inline-flex; align-items: center; gap: 6px;
-    color: var(--teal); font-weight: 600; font-size: 14px;
-    text-decoration: none; border-bottom: 1.5px solid transparent;
-    transition: border-color .2s;
+  .search-field label {
+    display: block;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--gray-600);
+    margin-bottom: 6px;
+  }
+  .search-field select,
+  .search-field input {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1.5px solid var(--gray-200);
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: var(--font-body);
+    color: var(--gray-800);
+    background: var(--off-white);
+    transition: border-color 0.2s;
+    outline: none;
+    appearance: none;
+  }
+  .search-field select:focus,
+  .search-field input:focus { border-color: var(--blue); background: white; }
+  .search-btn {
+    background: linear-gradient(135deg, var(--blue) 0%, var(--navy) 100%);
+    color: white;
+    border: none;
+    padding: 11px 24px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: var(--font-body);
+    transition: all 0.2s;
     white-space: nowrap;
   }
-  .view-all:hover { border-bottom-color: var(--teal); }
+  .search-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(21,101,192,0.4); }
 
-  /* ─── ABOUT ─── */
-  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-  .about-visual {
-    position: relative;
-    border-radius: 20px;
-    overflow: hidden;
-    background: linear-gradient(135deg, var(--navy) 0%, #1E5C8A 100%);
-    min-height: 480px;
-    display: flex; align-items: center; justify-content: center;
-  }
-  .about-visual-graphic {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 32px;
-    width: 100%;
-  }
-  .av-card {
-    background: rgba(255,255,255,0.1);
-    border: 1px solid rgba(255,255,255,0.15);
-    border-radius: 12px;
-    padding: 20px;
-    text-align: center;
-    color: var(--white);
-  }
-  .av-card .num { font-family: var(--font-display); font-size: 32px; font-weight: 700; color: var(--gold-light); }
-  .av-card .lbl { font-size: 11px; color: rgba(255,255,255,0.6); margin-top: 4px; }
-  .av-highlight {
-    grid-column: span 2;
-    background: rgba(13,124,102,0.2);
-    border-color: rgba(13,124,102,0.4);
-  }
-  .about-content .section-label { margin-top: 0; }
-  .about-pillars { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 40px; }
-  .pillar {
-    display: flex; gap: 14px;
-    padding: 20px;
-    background: var(--white);
-    border: 1px solid var(--gray-200);
-    border-radius: 12px;
-    transition: box-shadow .2s;
-  }
-  .pillar:hover { box-shadow: var(--shadow-md); }
-  .pillar-icon { font-size: 24px; flex-shrink: 0; margin-top: 2px; }
-  .pillar strong { display: block; font-size: 14px; font-weight: 600; color: var(--navy); margin-bottom: 4px; }
-  .pillar p { font-size: 13px; color: var(--gray-600); line-height: 1.55; }
-
-  /* ─── SPECIALTIES ─── */
-  .spec-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
-  .spec-card {
-    background: var(--white);
-    border: 1px solid var(--gray-200);
-    border-radius: 14px;
-    padding: 28px 22px;
-    text-align: center;
-    text-decoration: none;
-    color: var(--text);
-    transition: all .25s;
-    cursor: pointer;
-  }
-  .spec-card:hover { border-color: var(--teal); box-shadow: 0 6px 24px rgba(13,124,102,0.12); transform: translateY(-3px); }
-  .spec-icon { font-size: 36px; margin-bottom: 14px; display: block; }
-  .spec-card h3 { font-size: 14px; font-weight: 600; color: var(--navy); margin-bottom: 6px; }
-  .spec-card p { font-size: 12px; color: var(--gray-600); line-height: 1.5; }
-
-  /* ─── HOSPITALS ─── */
-  .hosp-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
-  .hosp-card {
-    background: var(--white);
-    border: 1px solid var(--gray-200);
-    border-radius: 20px;
-    overflow: hidden;
-    transition: box-shadow .3s, transform .3s;
-  }
-  .hosp-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); }
-  .hosp-header {
-    background: linear-gradient(135deg, var(--navy), var(--navy-light));
-    padding: 36px 28px;
-    position: relative;
-  }
-  .hosp-city {
-    display: inline-block;
-    background: rgba(201,150,42,0.25);
-    border: 1px solid rgba(201,150,42,0.4);
-    color: var(--gold-light);
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    padding: 4px 12px;
-    border-radius: 20px;
-    margin-bottom: 12px;
-  }
-  .hosp-header h3 { font-family: var(--font-display); font-size: 22px; color: var(--white); font-weight: 600; }
-  .hosp-state { font-size: 13px; color: rgba(255,255,255,0.55); margin-top: 4px; }
-  .hosp-body { padding: 28px; }
-  .hosp-addr { font-size: 13.5px; color: var(--gray-600); line-height: 1.6; margin-bottom: 20px; padding-left: 18px; border-left: 3px solid var(--teal); }
-  .hosp-contact { display: flex; flex-direction: column; gap: 8px; margin-bottom: 24px; }
-  .hosp-contact a { font-size: 14px; color: var(--navy); text-decoration: none; font-weight: 500; }
-  .hosp-contact a:hover { color: var(--teal); }
-  .hosp-actions { display: flex; gap: 10px; }
-  .btn-sm {
-    flex: 1;
-    display: inline-flex; align-items: center; justify-content: center; gap: 6px;
-    padding: 10px 16px;
-    border-radius: 8px;
-    font-size: 13px;
-    font-weight: 600;
-    text-decoration: none;
-    transition: all .2s;
-  }
-  .btn-sm-primary { background: var(--teal); color: var(--white); }
-  .btn-sm-primary:hover { background: var(--teal-light); }
-  .btn-sm-outline { border: 1.5px solid var(--gray-200); color: var(--navy); }
-  .btn-sm-outline:hover { border-color: var(--teal); color: var(--teal); }
-
-  /* ─── DOCTORS ─── */
-  .doc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 24px; }
-  .doc-card {
-    background: var(--white);
-    border: 1px solid var(--gray-200);
-    border-radius: 16px;
-    overflow: hidden;
-    transition: all .25s;
-    text-decoration: none;
-    color: var(--text);
-  }
-  .doc-card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); }
-  .doc-photo {
-    height: 200px;
-    background: linear-gradient(150deg, #E8EEF5 0%, #D0DCED 100%);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 56px;
-    position: relative;
-  }
-  .doc-photo .doc-initials {
-    width: 80px; height: 80px;
-    background: var(--navy);
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-family: var(--font-display);
-    font-size: 26px;
-    color: var(--gold-light);
-    font-weight: 700;
-  }
-  .doc-info { padding: 20px; }
-  .doc-specialty {
-    display: inline-block;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    color: var(--teal);
-    background: rgba(13,124,102,0.08);
-    padding: 4px 10px;
-    border-radius: 20px;
-    margin-bottom: 10px;
-  }
-  .doc-info h3 { font-size: 15px; font-weight: 600; color: var(--navy); margin-bottom: 4px; }
-  .doc-info .qual { font-size: 12px; color: var(--gray-600); }
-  .doc-info .location { font-size: 12px; color: var(--gray-400); margin-top: 8px; }
-
-  /* ─── TESTIMONIALS ─── */
-  .test-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
-  .test-card {
-    background: var(--white);
-    border: 1px solid var(--gray-200);
-    border-radius: 16px;
-    padding: 32px;
-    position: relative;
-    transition: box-shadow .25s;
-  }
-  .test-card:hover { box-shadow: var(--shadow-md); }
-  .test-quote { font-size: 52px; line-height: 0.7; color: var(--teal); font-family: var(--font-display); font-weight: 700; margin-bottom: 16px; opacity: 0.3; }
-  .test-text { font-size: 14.5px; color: var(--gray-800); line-height: 1.75; margin-bottom: 24px; }
-  .test-patient { display: flex; align-items: center; gap: 12px; }
-  .test-avatar {
-    width: 44px; height: 44px;
-    background: var(--navy);
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 16px;
-    color: var(--gold-light);
-    font-weight: 700;
-    font-family: var(--font-display);
-    flex-shrink: 0;
-  }
-  .test-patient strong { display: block; font-size: 14px; font-weight: 600; color: var(--navy); }
-  .test-patient span { font-size: 12px; color: var(--gray-600); }
-  .test-stars { color: var(--gold); font-size: 13px; margin-bottom: 4px; }
-  .test-video-badge {
-    display: inline-flex; align-items: center; gap: 6px;
-    background: rgba(13,124,102,0.08);
-    color: var(--teal);
+  /* ─── SECTION WRAPPER ─── */
+  .section { padding: 72px 24px; }
+  .section-alt { background: var(--off-white); }
+  .section-dark { background: var(--navy); }
+  .container { max-width: 1280px; margin: 0 auto; }
+  .section-label {
     font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--blue);
     font-weight: 600;
-    padding: 4px 12px;
-    border-radius: 20px;
-    margin-top: 12px;
-    text-decoration: none;
-  }
-  .test-video-badge:hover { background: rgba(13,124,102,0.15); }
-
-  /* ─── BLOGS ─── */
-  .blog-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 28px; align-items: start; }
-  .blog-featured {
-    background: var(--white);
-    border-radius: 16px;
-    overflow: hidden;
-    border: 1px solid var(--gray-200);
-    transition: box-shadow .25s;
-    text-decoration: none;
-    color: var(--text);
+    margin-bottom: 10px;
     display: block;
   }
-  .blog-featured:hover { box-shadow: var(--shadow-md); }
-  .blog-img {
-    height: 240px;
-    background: linear-gradient(135deg, #E8EEF5, #D0DCED);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 48px;
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 4vw, 44px);
+    color: var(--navy);
+    font-weight: 500;
+    line-height: 1.2;
+    margin-bottom: 16px;
   }
-  .blog-featured-img { height: 280px; }
-  .blog-content { padding: 24px; }
+  .section-dark .section-title { color: white; }
+  .section-sub {
+    color: var(--gray-600);
+    font-size: 16px;
+    max-width: 540px;
+    line-height: 1.7;
+    margin-bottom: 48px;
+  }
+  .section-dark .section-sub { color: rgba(255,255,255,0.65); }
+  .section-header { margin-bottom: 48px; }
+  .section-header-row {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 48px;
+  }
+
+  /* ─── STATS ─── */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+  .stat-card {
+    background: white;
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+    padding: 32px 24px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s;
+    box-shadow: var(--shadow-sm);
+  }
+  .stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--blue) 0%, var(--teal-light) 100%);
+  }
+  .stat-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+  .stat-num {
+    font-family: var(--font-display);
+    font-size: 48px;
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1;
+    display: block;
+    margin-bottom: 6px;
+  }
+  .stat-suffix { font-size: 28px; color: var(--blue); }
+  .stat-label {
+    font-size: 14px;
+    color: var(--gray-600);
+    font-weight: 500;
+    letter-spacing: 0.3px;
+  }
+
+  /* ─── SPECIALTIES ─── */
+  .specialties-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+  }
+  .specialty-card {
+    background: white;
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+    padding: 24px 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-decoration: none;
+    display: block;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+  }
+  .specialty-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--blue-pale) 0%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .specialty-card:hover {
+    border-color: var(--blue);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
+  .specialty-card:hover::after { opacity: 1; }
+  .specialty-icon {
+    width: 56px; height: 56px;
+    background: var(--blue-ultra);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 14px;
+    font-size: 22px;
+    transition: all 0.3s;
+    position: relative;
+    z-index: 1;
+  }
+  .specialty-card:hover .specialty-icon {
+    background: var(--blue);
+    transform: scale(1.1);
+  }
+  .specialty-card:hover .specialty-icon span { filter: brightness(10); }
+  .specialty-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--navy);
+    display: block;
+    margin-bottom: 6px;
+    position: relative;
+    z-index: 1;
+  }
+  .specialty-desc {
+    font-size: 12px;
+    color: var(--gray-600);
+    line-height: 1.5;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ─── PATIENT JOURNEY ─── */
+  .journey-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    position: relative;
+  }
+  .journey-steps::before {
+    content: '';
+    position: absolute;
+    top: 36px;
+    left: calc(12.5%);
+    right: calc(12.5%);
+    height: 2px;
+    background: linear-gradient(90deg, var(--blue) 0%, var(--teal-light) 100%);
+  }
+  .journey-step {
+    text-align: center;
+    padding: 0 16px;
+    position: relative;
+  }
+  .journey-num {
+    width: 72px; height: 72px;
+    background: linear-gradient(135deg, var(--blue) 0%, var(--navy) 100%);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 22px;
+    box-shadow: 0 8px 24px rgba(21,101,192,0.3);
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s;
+  }
+  .journey-step:hover .journey-num {
+    transform: scale(1.1);
+    box-shadow: 0 12px 30px rgba(21,101,192,0.4);
+  }
+  .journey-step-title {
+    font-family: var(--font-display);
+    font-size: 18px;
+    color: var(--navy);
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+  .journey-step-desc {
+    font-size: 13px;
+    color: var(--gray-600);
+    line-height: 1.6;
+  }
+
+  /* ─── DOCTORS ─── */
+  .doctors-filters {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 32px;
+  }
+  .filter-btn {
+    padding: 8px 18px;
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 500;
+    border: 1.5px solid var(--gray-200);
+    background: white;
+    color: var(--gray-600);
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: var(--font-body);
+  }
+  .filter-btn.active,
+  .filter-btn:hover {
+    border-color: var(--blue);
+    color: var(--blue);
+    background: var(--blue-ultra);
+  }
+  .doctors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+  }
+  .doctor-card {
+    background: white;
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: all 0.3s;
+    box-shadow: var(--shadow-sm);
+    cursor: pointer;
+  }
+  .doctor-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: var(--blue); }
+  .doctor-img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    background: linear-gradient(135deg, var(--blue-pale) 0%, var(--gray-100) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+    color: var(--gray-400);
+    position: relative;
+    overflow: hidden;
+  }
+  .doctor-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .doctor-info { padding: 16px; }
+  .doctor-hospital {
+    font-size: 11px;
+    color: var(--teal-light);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+  }
+  .doctor-name {
+    font-family: var(--font-display);
+    font-size: 17px;
+    color: var(--navy);
+    font-weight: 500;
+    margin-bottom: 4px;
+  }
+  .doctor-specialty {
+    font-size: 13px;
+    color: var(--blue);
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+  .doctor-quals {
+    font-size: 12px;
+    color: var(--gray-400);
+    margin-bottom: 14px;
+  }
+  .doctor-book {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 9px;
+    background: var(--blue-ultra);
+    color: var(--blue);
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .doctor-book:hover { background: var(--blue); color: white; }
+
+  /* ─── TESTIMONIALS ─── */
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  .testimonial-card {
+    background: white;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: all 0.3s;
+    cursor: pointer;
+    text-decoration: none;
+    display: block;
+  }
+  .testimonial-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-xl); }
+  .testimonial-thumb {
+    height: 180px;
+    background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .testimonial-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.8;
+  }
+  .play-btn {
+    position: absolute;
+    width: 52px; height: 52px;
+    background: rgba(255,255,255,0.95);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s;
+  }
+  .testimonial-card:hover .play-btn { transform: scale(1.1); }
+  .play-btn::after {
+    content: '';
+    border: 10px solid transparent;
+    border-left: 16px solid var(--blue);
+    margin-left: 4px;
+  }
+  .testimonial-body { padding: 20px; }
+  .testimonial-title {
+    font-family: var(--font-display);
+    font-size: 16px;
+    color: var(--navy);
+    font-weight: 500;
+    margin-bottom: 8px;
+    line-height: 1.4;
+  }
+  .testimonial-desc { font-size: 13px; color: var(--gray-600); line-height: 1.6; }
+
+  /* ─── BLOG CARDS ─── */
+  .blog-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 20px;
+  }
+  .blog-card {
+    background: white;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--gray-200);
+    transition: all 0.3s;
+    text-decoration: none;
+    display: block;
+  }
+  .blog-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: var(--blue); }
+  .blog-img {
+    height: 200px;
+    background: linear-gradient(135deg, var(--blue-pale) 0%, var(--gray-100) 100%);
+    overflow: hidden;
+  }
+  .blog-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+  .blog-card:hover .blog-img img { transform: scale(1.05); }
+  .blog-body { padding: 20px; }
   .blog-tag {
     display: inline-block;
     font-size: 11px;
     font-weight: 600;
+    color: var(--blue);
+    background: var(--blue-ultra);
+    padding: 3px 10px;
+    border-radius: 50px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
     letter-spacing: 0.5px;
-    color: var(--teal);
-    background: rgba(13,124,102,0.08);
-    padding: 4px 10px;
-    border-radius: 20px;
-    margin-bottom: 12px;
   }
-  .blog-content h3 { font-family: var(--font-display); font-size: 18px; font-weight: 600; color: var(--navy); line-height: 1.4; margin-bottom: 10px; }
-  .blog-content p { font-size: 13.5px; color: var(--gray-600); line-height: 1.6; }
+  .blog-title {
+    font-family: var(--font-display);
+    font-size: 17px;
+    color: var(--navy);
+    font-weight: 500;
+    line-height: 1.4;
+    margin-bottom: 10px;
+  }
+  .blog-excerpt { font-size: 13px; color: var(--gray-600); line-height: 1.6; }
   .blog-date { font-size: 12px; color: var(--gray-400); margin-top: 12px; }
-  .blog-featured .blog-content h3 { font-size: 22px; }
-  .blog-list { display: flex; flex-direction: column; gap: 16px; }
-  .blog-mini {
-    background: var(--white);
-    border: 1px solid var(--gray-200);
-    border-radius: 12px;
-    padding: 20px;
-    text-decoration: none;
-    color: var(--text);
-    display: block;
-    transition: box-shadow .2s;
-  }
-  .blog-mini:hover { box-shadow: var(--shadow-sm); }
-  .blog-mini h3 { font-size: 14px; font-weight: 600; color: var(--navy); line-height: 1.4; margin-bottom: 6px; }
-  .blog-mini span { font-size: 12px; color: var(--gray-400); }
 
-  /* ─── FAQ ─── */
-  .faq-list { max-width: 800px; margin: 0 auto; }
-  .faq-item {
+  /* ─── LOCATIONS ─── */
+  .locations-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .location-card {
+    background: white;
     border: 1px solid var(--gray-200);
-    border-radius: 12px;
-    margin-bottom: 12px;
+    border-radius: var(--radius-lg);
+    padding: 28px;
+    transition: all 0.3s;
+    box-shadow: var(--shadow-sm);
+    position: relative;
     overflow: hidden;
   }
-  .faq-q {
-    width: 100%;
-    background: var(--white);
-    border: none;
-    padding: 20px 24px;
-    text-align: left;
-    font-size: 15px;
-    font-weight: 600;
+  .location-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--blue) 0%, var(--teal-light) 100%);
+  }
+  .location-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: var(--blue); }
+  .location-city {
+    font-family: var(--font-display);
+    font-size: 22px;
     color: var(--navy);
-    cursor: pointer;
+    font-weight: 500;
+    margin-bottom: 4px;
+  }
+  .location-state { font-size: 12px; color: var(--teal-light); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; }
+  .location-name { font-size: 14px; font-weight: 600; color: var(--navy); margin-bottom: 8px; }
+  .location-address { font-size: 13px; color: var(--gray-600); line-height: 1.6; margin-bottom: 16px; }
+  .location-phone { font-size: 14px; font-weight: 500; color: var(--blue); margin-bottom: 4px; }
+  .location-actions { display: flex; gap: 10px; margin-top: 20px; flex-wrap: wrap; }
+  .location-actions a {
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .loc-btn-primary { background: var(--blue); color: white; }
+  .loc-btn-primary:hover { background: var(--navy); }
+  .loc-btn-outline { border: 1.5px solid var(--blue); color: var(--blue); }
+  .loc-btn-outline:hover { background: var(--blue-ultra); }
+
+  /* ─── FAQ ─── */
+  .faq-list { max-width: 780px; margin: 0 auto; }
+  .faq-item {
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius);
+    margin-bottom: 10px;
+    overflow: hidden;
+    transition: box-shadow 0.2s;
+  }
+  .faq-item:hover { box-shadow: var(--shadow-md); }
+  .faq-question {
+    padding: 18px 24px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    cursor: pointer;
+    font-weight: 500;
+    color: var(--navy);
+    font-size: 15px;
+    background: white;
+    user-select: none;
     gap: 16px;
-    transition: background .2s;
-    font-family: var(--font-body);
   }
-  .faq-q:hover { background: var(--gray-50); }
-  .faq-q .arrow { font-size: 18px; transition: transform .3s; color: var(--teal); flex-shrink: 0; }
-  .faq-item.open .faq-q .arrow { transform: rotate(45deg); }
-  .faq-a {
-    display: none;
-    padding: 0 24px 20px;
-    font-size: 14.5px;
+  .faq-question::after {
+    content: '+';
+    font-size: 22px;
+    color: var(--blue);
+    font-weight: 300;
+    flex-shrink: 0;
+    transition: transform 0.3s;
+  }
+  .faq-item.open .faq-question::after { transform: rotate(45deg); }
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease, padding 0.2s;
+    font-size: 14px;
     color: var(--gray-600);
     line-height: 1.7;
-    border-top: 1px solid var(--gray-100);
+    background: var(--off-white);
+    padding: 0 24px;
   }
-  .faq-item.open .faq-a { display: block; padding-top: 16px; }
+  .faq-item.open .faq-answer { max-height: 200px; padding: 16px 24px; }
 
-  /* ─── CTA BANNER ─── */
-  .cta-section {
-    background: linear-gradient(135deg, var(--navy) 0%, #1E4D6B 100%);
-    padding: 80px 0;
-    text-align: center;
+  /* ─── TRUST BADGES ─── */
+  .trust-strip {
+    background: var(--navy);
+    padding: 32px 24px;
   }
-  .cta-section h2 { font-family: var(--font-display); font-size: 40px; color: var(--white); margin-bottom: 16px; }
-  .cta-section p { font-size: 16px; color: rgba(255,255,255,0.65); margin-bottom: 36px; }
-  .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+  .trust-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 48px;
+    flex-wrap: wrap;
+  }
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: rgba(255,255,255,0.9);
+  }
+  .trust-icon {
+    width: 44px; height: 44px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+  .trust-text-main { font-size: 14px; font-weight: 600; display: block; }
+  .trust-text-sub { font-size: 12px; color: rgba(255,255,255,0.5); display: block; }
+
+  /* ─── ABOUT STRIP ─── */
+  .about-strip {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+  }
+  .about-img-wrapper { position: relative; }
+  .about-img-placeholder {
+    height: 420px;
+    background: linear-gradient(135deg, var(--blue-pale) 0%, #c8e6c9 100%);
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 80px;
+    overflow: hidden;
+    position: relative;
+  }
+  .about-badge {
+    position: absolute;
+    bottom: -16px;
+    right: -16px;
+    background: white;
+    border-radius: var(--radius-lg);
+    padding: 16px 24px;
+    box-shadow: var(--shadow-lg);
+    text-align: center;
+    border: 1px solid var(--gray-200);
+  }
+  .about-badge-num {
+    font-family: var(--font-display);
+    font-size: 32px;
+    color: var(--navy);
+    font-weight: 600;
+  }
+  .about-badge-label { font-size: 12px; color: var(--gray-600); }
+
+  /* ─── HEALTH PACKAGES ─── */
+  .packages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 20px;
+  }
+  .package-card {
+    background: white;
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+    padding: 28px 24px;
+    transition: all 0.3s;
+    box-shadow: var(--shadow-sm);
+    position: relative;
+    overflow: hidden;
+  }
+  .package-card.featured {
+    border-color: var(--blue);
+    background: linear-gradient(135deg, var(--blue-ultra) 0%, white 100%);
+  }
+  .package-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+  .package-badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 3px 10px;
+    border-radius: 50px;
+    margin-bottom: 14px;
+  }
+  .package-badge.popular { background: #e3f2fd; color: var(--blue); }
+  .package-badge.wellness { background: #e8f5e9; color: var(--teal); }
+  .package-badge.woman { background: #fce4ec; color: #c2185b; }
+  .package-badge.senior { background: #fff3e0; color: #e65100; }
+  .package-name {
+    font-family: var(--font-display);
+    font-size: 20px;
+    color: var(--navy);
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+  .package-features {
+    list-style: none;
+    margin-bottom: 20px;
+  }
+  .package-features li {
+    font-size: 13px;
+    color: var(--gray-600);
+    padding: 4px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .package-features li::before {
+    content: '✓';
+    color: var(--teal-light);
+    font-weight: 700;
+    font-size: 13px;
+    flex-shrink: 0;
+  }
+  .package-cta {
+    display: block;
+    text-align: center;
+    padding: 10px;
+    background: var(--blue);
+    color: white;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .package-cta:hover { background: var(--navy); }
+
+  /* ─── AI CHAT BOT ─── */
+  .chat-fab {
+    position: fixed;
+    bottom: 88px;
+    right: 24px;
+    z-index: 500;
+  }
+  .chat-toggle {
+    width: 58px; height: 58px;
+    background: linear-gradient(135deg, var(--blue) 0%, var(--navy) 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(21,101,192,0.45);
+    transition: transform 0.2s;
+    border: none;
+    color: white;
+    font-size: 22px;
+  }
+  .chat-toggle:hover { transform: scale(1.08); }
+  .chat-window {
+    display: none;
+    position: absolute;
+    bottom: 68px;
+    right: 0;
+    width: 320px;
+    background: white;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-xl);
+    border: 1px solid var(--gray-200);
+    overflow: hidden;
+  }
+  .chat-window.open { display: flex; flex-direction: column; animation: fadeUp 0.25s ease; }
+  .chat-header {
+    background: linear-gradient(135deg, var(--blue) 0%, var(--navy) 100%);
+    color: white;
+    padding: 16px 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .chat-avatar {
+    width: 36px; height: 36px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+  }
+  .chat-header-text p:first-child { font-weight: 600; font-size: 14px; }
+  .chat-header-text p:last-child { font-size: 11px; opacity: 0.7; }
+  .chat-messages {
+    padding: 16px;
+    height: 240px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .chat-msg {
+    max-width: 80%;
+    padding: 10px 14px;
+    border-radius: 12px;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+  .chat-msg.bot {
+    background: var(--off-white);
+    color: var(--gray-800);
+    align-self: flex-start;
+    border-bottom-left-radius: 4px;
+  }
+  .chat-msg.user {
+    background: var(--blue);
+    color: white;
+    align-self: flex-end;
+    border-bottom-right-radius: 4px;
+  }
+  .chat-quick-replies {
+    padding: 8px 16px;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .chat-reply {
+    padding: 5px 12px;
+    border: 1.5px solid var(--blue);
+    color: var(--blue);
+    border-radius: 50px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: var(--font-body);
+    background: white;
+  }
+  .chat-reply:hover { background: var(--blue); color: white; }
+  .chat-input-row {
+    padding: 12px 16px;
+    border-top: 1px solid var(--gray-200);
+    display: flex;
+    gap: 8px;
+  }
+  .chat-input {
+    flex: 1;
+    border: 1.5px solid var(--gray-200);
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 13px;
+    font-family: var(--font-body);
+    outline: none;
+  }
+  .chat-input:focus { border-color: var(--blue); }
+  .chat-send {
+    background: var(--blue);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 14px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.2s;
+  }
+  .chat-send:hover { background: var(--navy); }
+
+  /* ─── STICKY MOBILE BAR ─── */
+  .sticky-bar {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 300;
+    background: white;
+    border-top: 1px solid var(--gray-200);
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
+  }
+  .sticky-bar-inner {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    height: 64px;
+  }
+  .sticky-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--gray-600);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .sticky-btn:first-child { color: var(--red); }
+  .sticky-btn:nth-child(2) { color: var(--blue); }
+  .sticky-btn span { font-size: 20px; }
 
   /* ─── FOOTER ─── */
   footer {
     background: var(--navy);
-    color: rgba(255,255,255,0.65);
-    padding: 72px 0 0;
+    color: rgba(255,255,255,0.8);
+    padding: 56px 24px 32px;
   }
   .footer-grid {
     max-width: 1280px;
     margin: 0 auto;
-    padding: 0 32px;
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1.5fr;
-    gap: 48px;
+    grid-template-columns: 1.8fr 1fr 1fr 1fr;
+    gap: 40px;
     margin-bottom: 48px;
   }
-  .footer-brand .logo-name { color: var(--white); font-size: 22px; }
-  .footer-brand .logo-tagline { color: rgba(255,255,255,0.4); }
-  .footer-brand .logo-mark { background: rgba(255,255,255,0.1); }
-  .footer-desc { font-size: 14px; line-height: 1.75; margin-top: 20px; max-width: 300px; }
-  .footer-contact { margin-top: 24px; display: flex; flex-direction: column; gap: 8px; }
-  .footer-contact a { color: var(--gold-light); font-size: 13.5px; text-decoration: none; }
-  .footer-contact a:hover { color: var(--white); }
-  .footer-heading {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.4);
-    margin-bottom: 20px;
+  .footer-brand .logo-name { color: white; font-size: 22px; margin-bottom: 4px; display: block; }
+  .footer-brand p {
+    font-size: 13px;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.7;
+    margin-top: 12px;
+    max-width: 280px;
   }
-  .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-  .footer-links a { color: rgba(255,255,255,0.65); text-decoration: none; font-size: 14px; transition: color .2s; }
-  .footer-links a:hover { color: var(--gold-light); }
-  .footer-hospitals { display: flex; flex-direction: column; gap: 20px; }
-  .footer-hosp-item strong { display: block; font-size: 14px; font-weight: 600; color: var(--white); margin-bottom: 4px; }
-  .footer-hosp-item p { font-size: 12.5px; line-height: 1.6; }
-  .footer-hosp-item a { color: var(--gold-light); font-size: 13px; text-decoration: none; }
+  .footer-contact { margin-top: 20px; }
+  .footer-contact-item { font-size: 13px; color: rgba(255,255,255,0.7); margin-bottom: 6px; }
+  .footer-contact-item a { color: #90caf9; text-decoration: none; }
+  .footer-col h4 {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: rgba(255,255,255,0.4);
+    font-weight: 500;
+    margin-bottom: 16px;
+  }
+  .footer-links { list-style: none; }
+  .footer-links li { margin-bottom: 8px; }
+  .footer-links a {
+    font-size: 13px;
+    color: rgba(255,255,255,0.65);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: #90caf9; }
   .footer-bottom {
-    border-top: 1px solid rgba(255,255,255,0.08);
     max-width: 1280px;
     margin: 0 auto;
-    padding: 24px 32px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255,255,255,0.1);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 13px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.35);
     flex-wrap: wrap;
     gap: 12px;
   }
-  .footer-bottom a { color: rgba(255,255,255,0.45); text-decoration: none; }
-  .footer-bottom a:hover { color: rgba(255,255,255,0.8); }
-  .footer-bottom-links { display: flex; gap: 20px; }
+  .footer-bottom a { color: rgba(255,255,255,0.5); text-decoration: none; }
+  .footer-bottom a:hover { color: white; }
 
-  /* ─── EMERGENCY FLOAT ─── */
-  .emergency-float {
-    position: fixed;
-    bottom: 32px;
-    right: 32px;
-    z-index: 999;
+  /* ─── SCROLL ANIMATIONS ─── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
   }
-  .emergency-float a {
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+  .reveal-delay-4 { transition-delay: 0.4s; }
+
+  /* ─── VIRTUAL CARE ─── */
+  .virtual-section {
+    background: linear-gradient(135deg, var(--navy) 0%, #1a4a7c 50%, var(--blue) 100%);
+    padding: 72px 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .virtual-section::before {
+    content: '';
+    position: absolute;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.05);
+    top: -200px; right: -200px;
+  }
+  .virtual-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+  .virtual-card {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    backdrop-filter: blur(8px);
+    border-radius: var(--radius-lg);
+    padding: 28px;
+  }
+  .vc-step {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    margin-bottom: 20px;
+  }
+  .vc-step:last-child { margin-bottom: 0; }
+  .vc-num {
+    width: 36px; height: 36px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 50%;
     display: flex;
     align-items: center;
-    gap: 10px;
-    background: #D32F2F;
-    color: var(--white);
-    padding: 14px 22px;
-    border-radius: 40px;
+    justify-content: center;
+    font-size: 13px;
     font-weight: 700;
-    font-size: 14px;
-    text-decoration: none;
-    box-shadow: 0 6px 24px rgba(211,47,47,0.4);
-    transition: all .2s;
+    color: white;
+    flex-shrink: 0;
   }
-  .emergency-float a:hover { background: #B71C1C; transform: scale(1.03); }
-  .emergency-float .pulse-ring {
-    position: absolute;
-    top: -4px; left: -4px; right: -4px; bottom: -4px;
-    border: 2px solid rgba(211,47,47,0.4);
-    border-radius: 44px;
-    animation: ring-pulse 2.5s infinite;
-  }
-  @keyframes ring-pulse { 0%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(1.12)} }
-
-  /* ─── ANIMATIONS ─── */
-  .fade-in { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
-  .fade-in.visible { opacity: 1; transform: translateY(0); }
+  .vc-title { font-size: 15px; font-weight: 600; color: white; margin-bottom: 4px; }
+  .vc-desc { font-size: 13px; color: rgba(255,255,255,0.65); line-height: 1.5; }
 
   /* ─── RESPONSIVE ─── */
-  @media (max-width: 1024px) {
-    .hero-inner { grid-template-columns: 1fr; gap: 48px; }
+  @media (max-width: 900px) {
+    .hero-content { grid-template-columns: 1fr; gap: 32px; }
     .hero-right { display: none; }
-    .about-grid { grid-template-columns: 1fr; }
-    .about-visual { min-height: 300px; }
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .about-strip { grid-template-columns: 1fr; }
     .blog-grid { grid-template-columns: 1fr; }
+    .locations-grid { grid-template-columns: 1fr; }
     .footer-grid { grid-template-columns: 1fr 1fr; }
+    .journey-steps { grid-template-columns: repeat(2, 1fr); }
+    .journey-steps::before { display: none; }
+    .virtual-inner { grid-template-columns: 1fr; }
+    .sticky-bar { display: block; }
+    body { padding-bottom: 64px; }
+    .doctors-grid { grid-template-columns: repeat(2, 1fr); }
   }
-  @media (max-width: 768px) {
-    .hosp-grid, .test-grid { grid-template-columns: 1fr; }
+  @media (max-width: 600px) {
     .nav-links { display: none; }
-    .topbar { display: none; }
-    .quick-bar-inner { display: grid; grid-template-columns: 1fr 1fr; }
-    .quick-item { border-right: none; border-bottom: 1px solid var(--gray-200); }
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .specialties-grid { grid-template-columns: repeat(2, 1fr); }
+    .doctors-grid { grid-template-columns: 1fr; }
     .footer-grid { grid-template-columns: 1fr; }
-    .hero-stats { gap: 20px; }
-    .about-pillars { grid-template-columns: 1fr; }
+    .search-row { grid-template-columns: 1fr; }
   }
+
+  /* ─── INTERNATIONAL SECTION ─── */
+  .intl-section {
+    background: var(--off-white);
+  }
+  .intl-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+  .intl-features { display: grid; gap: 16px; }
+  .intl-feature {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .intl-feat-icon {
+    width: 44px; height: 44px;
+    background: var(--blue-ultra);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+  .intl-feat-title { font-size: 15px; font-weight: 600; color: var(--navy); margin-bottom: 4px; }
+  .intl-feat-desc { font-size: 13px; color: var(--gray-600); line-height: 1.5; }
 </style>
 </head>
 <body>
 
-<!-- TOP BAR -->
-<div class="topbar">
-  <div class="topbar-inner">
-    <div class="topbar-left">
-      <span>📧 <a href="mailto:info@sahayoghospitals.com">info@sahayoghospitals.com</a></span>
-      <span class="topbar-divider">|</span>
-      <a href="tel:07182250006">📞 Gondia: 07182 250006</a>
-      <span class="topbar-divider">|</span>
-      <a href="tel:01244134444">📞 Gurugram: 0124 4134444</a>
-      <span class="topbar-divider">|</span>
-      <a href="tel:07122754889">📞 Nagpur: 0712 2754889</a>
-    </div>
-    <div class="topbar-right">
-      <a href="#">International Patients</a>
-      <span class="topbar-divider">|</span>
-      <a href="#">Careers</a>
-      <span class="topbar-divider">|</span>
-      <a href="#">Health Corner</a>
-    </div>
-  </div>
+<!-- EMERGENCY BANNER -->
+<div class="emergency-banner">
+  <span class="pulse-dot"></span>
+  <span>24x7 Emergency &amp; Trauma Care Available</span>
+  <span>·</span>
+  <span>Gondia: <a href="tel:07182250006">07182 250006</a></span>
+  <span>·</span>
+  <span>Gurugram: <a href="tel:01244134444">0124 4134444</a></span>
+  <span>·</span>
+  <span>Nagpur: <a href="tel:07122754889">0712 2754889</a></span>
 </div>
 
 <!-- NAVBAR -->
-<nav>
+<nav id="navbar">
   <div class="nav-inner">
-    <a href="#" class="logo">
+    <a href="https://www.sahayoghospitals.com" class="logo">
       <div class="logo-mark">S</div>
       <div class="logo-text">
-        <span class="logo-name">Sahayog Hospitals</span>
-        <span class="logo-tagline">Care · Compassion · Commitment</span>
+        <span class="logo-name">Sahayog</span>
+        <span class="logo-sub">Group of Hospitals</span>
       </div>
     </a>
-    <div class="nav-links">
-      <div class="dropdown">
-        <a href="#">About Us</a>
+
+    <ul class="nav-links">
+      <li class="nav-dropdown">
+        <a href="https://www.sahayoghospitals.com/about_us">About</a>
         <div class="dropdown-menu">
-          <a href="#">Overview</a>
-          <a href="#">Director's Message</a>
-          <a href="#">Our Leadership</a>
-          <a href="#">CSR Activities</a>
+          <a href="https://www.sahayoghospitals.com/about_us">Overview</a>
+          <a href="https://www.sahayoghospitals.com/about_us#director_message">Director's Message</a>
+          <a href="https://www.sahayoghospitals.com/about_us#leadership">Our Leadership</a>
+          <a href="https://www.sahayoghospitals.com/about_us#csr_activities">CSR Activities</a>
         </div>
-      </div>
-      <div class="dropdown">
-        <a href="#">Find Hospital</a>
+      </li>
+      <li class="nav-dropdown">
+        <a href="#">Hospitals</a>
         <div class="dropdown-menu">
-          <a href="#">Sahayog Hospital, Gondia</a>
-          <a href="#">Sahayog Hospital, Gurugram</a>
-          <a href="#">Sahayog Hospital, Nagpur</a>
+          <a href="https://www.sahayoghospitals.com/gondia">Gondia, Maharashtra</a>
+          <a href="https://www.sahayoghospitals.com/gurugram">Gurugram, Haryana</a>
+          <a href="https://www.sahayoghospitals.com/nagpur">Nagpur, Maharashtra</a>
         </div>
-      </div>
-      <div class="dropdown">
-        <a href="#">Specialities</a>
-        <div class="dropdown-menu">
-          <a href="#">Cardiac Sciences</a>
-          <a href="#">Orthopedics & Joint Care</a>
-          <a href="#">Neuro Sciences</a>
-          <a href="#">Cancer Care</a>
-          <a href="#">Gastro Sciences</a>
-          <a href="#">Emergency & Trauma Care</a>
-          <a href="#" style="color:var(--teal);font-weight:600;">View All Specialities →</a>
+      </li>
+      <li class="nav-dropdown">
+        <a href="https://www.sahayoghospitals.com/specialities">Specialities</a>
+        <div class="dropdown-menu dropdown-grid">
+          <a href="https://www.sahayoghospitals.com/orthopaedics-joint-replacement">Orthopedics</a>
+          <a href="https://www.sahayoghospitals.com/cardiac-sciences">Cardiac Sciences</a>
+          <a href="https://www.sahayoghospitals.com/neuro-sciences">Neuro Sciences</a>
+          <a href="https://www.sahayoghospitals.com/general-surgery">Minimal Access Surgery</a>
+          <a href="https://www.sahayoghospitals.com/gastroenterology_and_hepatobiliary_sciences">Gastro Sciences</a>
+          <a href="https://www.sahayoghospitals.com/obstetrics-gynaecology">Obstetrics &amp; Gynecology</a>
+          <a href="https://www.sahayoghospitals.com/pediatric-medical-management">Neonatology &amp; Pediatrics</a>
+          <a href="https://www.sahayoghospitals.com/emergency-critical-care">Emergency &amp; Trauma</a>
+          <a href="https://www.sahayoghospitals.com/ophthalmology">Eye Care</a>
+          <a href="https://www.sahayoghospitals.com/renal_sciences">Nephrology</a>
+          <a href="https://www.sahayoghospitals.com/uro-sciences">Urology</a>
+          <a href="https://www.sahayoghospitals.com/ent">ENT</a>
+          <a href="https://www.sahayoghospitals.com/onco_sciences">Cancer Care</a>
+          <a href="https://www.sahayoghospitals.com/endocrinology_and_diabetes_clinic">Endocrinology</a>
+          <a href="https://www.sahayoghospitals.com/internal-medicine">Internal Medicine</a>
+          <a href="https://www.sahayoghospitals.com/critical_care">Critical Care</a>
+          <a href="https://www.sahayoghospitals.com/dental">Dental Care</a>
+          <a href="https://www.sahayoghospitals.com/pulmonology">Pulmonology</a>
         </div>
-      </div>
-      <a href="#">Find A Doctor</a>
-      <a href="#">Sahayog Homecare</a>
-      <a href="#" class="emergency-btn nav-links">🚨 Emergency</a>
-      <a href="#" class="nav-cta">Book Appointment</a>
+      </li>
+      <li><a href="https://www.sahayoghospitals.com/find_a_doctor">Find a Doctor</a></li>
+      <li><a href="https://www.sahayoghospitals.com/sahayog_homecare">Homecare</a></li>
+      <li><a href="https://www.sahayoghospitals.com/international_patients">International</a></li>
+      <li><a href="https://www.sahayoghospitals.com/health_corner">Health Corner</a></li>
+    </ul>
+
+    <div class="nav-cta">
+      <a href="https://www.sahayoghospitals.com/find_a_doctor" class="btn btn-outline btn-sm">Find Doctor</a>
+      <a href="https://www.sahayoghospitals.com/find_a_doctor" class="btn btn-primary btn-sm">Book Appointment</a>
     </div>
   </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-inner">
-    <div class="hero-content">
-      <div class="hero-badge"><span></span>Trusted Multispeciality Care Since 2010</div>
-      <h1>Where <em>Compassion</em> Meets World-Class Medicine</h1>
-      <p>Sahayog Hospitals delivers advanced healthcare to patients who deserve the best — across Gondia, Gurugram, and Nagpur. Expert doctors, cutting-edge technology, and a legacy of trust.</p>
-      <div class="hero-actions">
-        <a href="#" class="btn-primary">📅 Book Appointment</a>
-        <a href="#" class="btn-outline">👨‍⚕️ Find a Doctor</a>
+  <div class="hero-bg"></div>
+
+  <!-- Heartbeat line SVG -->
+  <div class="hero-heartbeat">
+    <svg width="100%" height="100%" viewBox="0 0 1440 600" preserveAspectRatio="none">
+      <polyline class="heartbeat-line"
+        fill="none" stroke="white" stroke-width="2"
+        points="0,300 120,300 180,300 200,180 220,420 240,300 260,300 280,300 320,240 380,380 400,300 1440,300"/>
+    </svg>
+  </div>
+
+  <!-- Particles -->
+  <div class="hero-particles" id="particles"></div>
+
+  <div class="hero-content">
+    <div class="hero-left">
+      <div class="hero-badge">
+        <span style="width:6px;height:6px;background:#90caf9;border-radius:50%;display:inline-block;"></span>
+        Multispeciality Hospital Network · Est. 2019
       </div>
-      <div class="hero-stats">
-        <div class="hero-stat"><div class="num">50,000+</div><div class="lbl">Patients Treated</div></div>
-        <div class="hero-stat"><div class="num">200+</div><div class="lbl">Doctors & Staff</div></div>
-        <div class="hero-stat"><div class="num">3</div><div class="lbl">Hospital Locations</div></div>
-        <div class="hero-stat"><div class="num">27+</div><div class="lbl">Specialities</div></div>
+      <h1 class="hero-tagline">
+        Compassion<br>Meets <span>Excellence</span>
+      </h1>
+      <p class="hero-sub">
+        A legacy of trust built on care, expertise, and the unwavering belief that quality healthcare belongs to everyone. Serving patients across Gondia, Gurugram, and Nagpur.
+      </p>
+      <div class="hero-actions">
+        <a href="https://www.sahayoghospitals.com/find_a_doctor" class="btn btn-hero-primary">
+          📅 Book Appointment
+        </a>
+        <a href="https://www.sahayoghospitals.com/find_a_doctor" class="btn btn-hero-outline">
+          👨‍⚕️ Find a Doctor
+        </a>
       </div>
     </div>
+
     <div class="hero-right">
-      <div class="hero-cards">
-        <a href="#" class="hero-quick-card">
-          <div class="card-icon">🏥</div>
-          <h3>24/7 Emergency & Trauma Care</h3>
-          <p>Round-the-clock emergency services with rapid response teams at all locations</p>
+      <div class="quick-actions">
+        <a href="tel:07182250006" class="quick-card">
+          <span class="quick-card-icon">📞</span>
+          <span class="quick-card-label">Call Us</span>
+          <span class="quick-card-sub">24x7 helpline</span>
         </a>
-        <div class="hero-cards-row">
-          <a href="#" class="hero-quick-card">
-            <div class="card-icon">🫀</div>
-            <h3>Cardiac Sciences</h3>
-            <p>Advanced cardiac diagnosis and intervention</p>
-          </a>
-          <a href="#" class="hero-quick-card">
-            <div class="card-icon">🦴</div>
-            <h3>Orthopedics</h3>
-            <p>Joint replacement & bone care specialists</p>
-          </a>
+        <a href="https://www.sahayoghospitals.com/emergency-critical-care" class="quick-card">
+          <span class="quick-card-icon">🚑</span>
+          <span class="quick-card-label">Emergency</span>
+          <span class="quick-card-sub">Always ready</span>
+        </a>
+        <a href="https://api.whatsapp.com/send?phone=918888001426&text=Hello! I have a query." class="quick-card">
+          <span class="quick-card-icon">💬</span>
+          <span class="quick-card-label">WhatsApp</span>
+          <span class="quick-card-sub">Chat with us</span>
+        </a>
+        <a href="https://www.sahayoghospitals.com/find_a_doctor" class="quick-card">
+          <span class="quick-card-icon">👨‍⚕️</span>
+          <span class="quick-card-label">Our Doctors</span>
+          <span class="quick-card-sub">Expert panel</span>
+        </a>
+        <a href="https://www.sahayoghospitals.com/international_patients" class="quick-card">
+          <span class="quick-card-icon">✈️</span>
+          <span class="quick-card-label">International</span>
+          <span class="quick-card-sub">Global patients</span>
+        </a>
+        <a href="https://www.sahayoghospitals.com/sahayog_homecare" class="quick-card">
+          <span class="quick-card-icon">🏠</span>
+          <span class="quick-card-label">Homecare</span>
+          <span class="quick-card-sub">Care at home</span>
+        </a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <span class="hero-stat-num" id="stat1">0</span>
+          <span class="hero-stat-label">Patients Treated</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-num" id="stat2">0</span>
+          <span class="hero-stat-label">Specialists</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-num" id="stat3">0</span>
+          <span class="hero-stat-label">Locations</span>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- QUICK ACCESS BAR -->
-<div class="quick-bar">
-  <div class="quick-bar-inner">
-    <a href="#" class="quick-item">
-      <div class="quick-icon">🔍</div>
-      <div class="quick-text"><strong>Find A Doctor</strong><span>Search by name or specialty</span></div>
-    </a>
-    <a href="#" class="quick-item">
-      <div class="quick-icon">📅</div>
-      <div class="quick-text"><strong>Book Appointment</strong><span>Online & same-day available</span></div>
-    </a>
-    <a href="#" class="quick-item">
-      <div class="quick-icon">✈️</div>
-      <div class="quick-text"><strong>International Patients</strong><span>End-to-end care coordination</span></div>
-    </a>
-    <a href="#" class="quick-item">
-      <div class="quick-icon">🏠</div>
-      <div class="quick-text"><strong>Sahayog Homecare</strong><span>Medical care at your home</span></div>
-    </a>
+<!-- SMART SEARCH -->
+<div class="search-section">
+  <div class="search-wrapper">
+    <div class="search-box">
+      <h3>Find what you need</h3>
+      <div class="search-row">
+        <div class="search-field">
+          <label>Specialty / Treatment</label>
+          <select>
+            <option value="">Select Specialty</option>
+            <option>Orthopedics &amp; Joint Care</option>
+            <option>Cardiac Sciences</option>
+            <option>Neuro Sciences</option>
+            <option>Gastro Sciences</option>
+            <option>Obstetrics &amp; Gynecology</option>
+            <option>Neonatology &amp; Pediatrics</option>
+            <option>Emergency &amp; Trauma Care</option>
+            <option>Eye Care</option>
+            <option>Nephrology</option>
+            <option>Urology</option>
+            <option>Cancer Care</option>
+            <option>Dental Care</option>
+            <option>Dermatology</option>
+            <option>Pulmonology</option>
+          </select>
+        </div>
+        <div class="search-field">
+          <label>Hospital Location</label>
+          <select>
+            <option value="">All Locations</option>
+            <option>Gondia, Maharashtra</option>
+            <option>Gurugram, Haryana</option>
+            <option>Nagpur, Maharashtra</option>
+          </select>
+        </div>
+        <button class="search-btn" onclick="window.location='https://www.sahayoghospitals.com/find_a_doctor'">Search →</button>
+      </div>
+    </div>
   </div>
 </div>
 
 <!-- ABOUT -->
-<section class="section">
+<section class="section" style="padding-top:24px;">
   <div class="container">
-    <div class="about-grid">
-      <div class="about-visual">
-        <div class="about-visual-graphic">
-          <div class="av-card">
-            <div class="num">50K+</div>
-            <div class="lbl">Patients Treated</div>
-          </div>
-          <div class="av-card">
-            <div class="num">200+</div>
-            <div class="lbl">Specialists</div>
-          </div>
-          <div class="av-card">
-            <div class="num">24/7</div>
-            <div class="lbl">Emergency Services</div>
-          </div>
-          <div class="av-card">
-            <div class="num">27+</div>
-            <div class="lbl">Specialities</div>
-          </div>
-          <div class="av-card av-highlight" style="grid-column:span 2;">
-            <div class="num" style="font-size:24px;">3 Hospitals</div>
-            <div class="lbl">Gondia · Gurugram · Nagpur</div>
-          </div>
+    <div class="about-strip reveal">
+      <div class="about-img-wrapper">
+        <div class="about-img-placeholder" style="background: linear-gradient(135deg, #e3f2fd 0%, #e8f5e9 100%);">
+          <img src="https://www.sahayoghospitals.com/images/about_us_home.webp"
+               alt="Sahayog Hospital"
+               style="width:100%;height:100%;object-fit:cover;border-radius:var(--radius-lg);"
+               onerror="this.style.display='none'">
+          <span style="position:absolute;font-size:80px;opacity:0.3;">🏥</span>
+        </div>
+        <div class="about-badge">
+          <div class="about-badge-num">2019</div>
+          <div class="about-badge-label">Founded with purpose</div>
         </div>
       </div>
-      <div class="about-content fade-in">
-        <div class="section-label">Our Story</div>
+      <div>
+        <span class="section-label">Our Legacy</span>
         <h2 class="section-title">A Legacy of Trust, Built on Compassion and Care</h2>
-        <p class="section-desc">Sahayog was born with one purpose — to create institutions that empower lives by taking quality services to people who never imagined they could access them.</p>
-        <p class="section-desc" style="margin-top:16px;">We believe that world-class healthcare should not be a privilege. It should be a right. That's why every Sahayog facility is equipped with the latest technology, staffed by experienced specialists, and driven by genuine care for every patient.</p>
-        <div class="about-pillars">
-          <div class="pillar"><div class="pillar-icon">🎯</div><div><strong>Precision Medicine</strong><p>Evidence-based diagnostics and treatment protocols guided by senior specialists</p></div></div>
-          <div class="pillar"><div class="pillar-icon">❤️</div><div><strong>Patient-First Care</strong><p>Every decision is made with patient safety, comfort, and dignity at the forefront</p></div></div>
-          <div class="pillar"><div class="pillar-icon">🔬</div><div><strong>Advanced Technology</strong><p>State-of-the-art equipment for accurate diagnosis and minimally invasive treatment</p></div></div>
-          <div class="pillar"><div class="pillar-icon">🌍</div><div><strong>Community Outreach</strong><p>Regular health camps, CSR activities, and awareness programs for underserved communities</p></div></div>
+        <p class="section-sub" style="margin-bottom:24px;">
+          Sahayog was born with one purpose — to create institutions that empower lives by taking quality services to people who never imagined they could access them. From a single hospital in Gondia to a growing multi-city network, every expansion is a step toward that promise.
+        </p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;">
+          <a href="https://www.sahayoghospitals.com/about_us" class="btn btn-primary">Read Our Story</a>
+          <a href="https://www.sahayoghospitals.com/about_us#director_message" class="btn btn-outline">Director's Message</a>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- SPECIALITIES -->
+<!-- STATS -->
+<section class="section section-alt" style="padding-top:40px;padding-bottom:60px;">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-card reveal">
+        <span class="stat-num"><span class="count-up" data-target="50000" data-suffix="+">0</span></span>
+        <span class="stat-label">Patients Treated</span>
+      </div>
+      <div class="stat-card reveal reveal-delay-1">
+        <span class="stat-num"><span class="count-up" data-target="150" data-suffix="+">0</span></span>
+        <span class="stat-label">Doctors &amp; Specialists</span>
+      </div>
+      <div class="stat-card reveal reveal-delay-2">
+        <span class="stat-num"><span class="count-up" data-target="200" data-suffix="+">0</span></span>
+        <span class="stat-label">Beds Across Network</span>
+      </div>
+      <div class="stat-card reveal reveal-delay-3">
+        <span class="stat-num"><span class="count-up" data-target="3" data-suffix="">0</span></span>
+        <span class="stat-label">Cities Served</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPECIALTIES -->
+<section class="section">
+  <div class="container">
+    <div class="section-header-row">
+      <div>
+        <span class="section-label">Departments</span>
+        <h2 class="section-title">Excellence In Care</h2>
+        <p style="color:var(--gray-600);font-size:15px;max-width:480px;">World-class specialists across 27+ clinical departments, bringing cutting-edge care close to home.</p>
+      </div>
+      <a href="https://www.sahayoghospitals.com/specialities" class="btn btn-outline">View All Specialties →</a>
+    </div>
+    <div class="specialties-grid">
+      <a href="https://www.sahayoghospitals.com/orthopaedics-joint-replacement" class="specialty-card reveal">
+        <div class="specialty-icon"><span>🦴</span></div>
+        <span class="specialty-name">Orthopedics &amp; Joint Care</span>
+        <span class="specialty-desc">Bone, joint &amp; muscle care. Joint repair and replacement.</span>
+      </a>
+      <a href="https://www.sahayoghospitals.com/cardiac-sciences" class="specialty-card reveal reveal-delay-1">
+        <div class="specialty-icon"><span>❤️</span></div>
+        <span class="specialty-name">Cardiac Sciences</span>
+        <span class="specialty-desc">Advanced heart care &amp; interventional cardiology.</span>
+      </a>
+      <a href="https://www.sahayoghospitals.com/neuro-sciences" class="specialty-card reveal reveal-delay-2">
+        <div class="specialty-icon"><span>🧠</span></div>
+        <span class="specialty-name">Neuro Sciences</span>
+        <span class="specialty-desc">Expert neurology &amp; neurosurgery services.</span>
+      </a>
+      <a href="https://www.sahayoghospitals.com/gastroenterology_and_hepatobiliary_sciences" class="specialty-card reveal reveal-delay-3">
+        <div class="specialty-icon"><span>🏥</span></div>
+        <span class="specialty-name">Gastro Sciences</span>
+        <span class="specialty-desc">Digestive system, liver &amp; pancreas care.</span>
+      </a>
+      <a href="https://www.sahayoghospitals.com/obstetrics-gynaecology" class="specialty-card reveal">
+        <div class="specialty-icon"><span>👶</span></div>
+        <span class="specialty-name">Obstetrics &amp; Gynecology</span>
+        <span class="specialty-desc">Pregnancy, childbirth &amp; women's health.</span>
+      </a>
+      <a href="https://www.sahayoghospitals.com/pediatric-medical-management" class="specialty-card reveal reveal-delay-1">
+        <div class="specialty-icon"><span>🍼</span></div>
+        <span class="specialty-name">Neonatology &amp; Pediatrics</span>
+        <span class="specialty-desc">Care for newborns, infants &amp; children.</span>
+      </a>
+      <a href="https://www.sahayoghospitals.com/emergency-critical-care" class="specialty-card reveal reveal-delay-2">
+        <div class="specialty-icon"><span>🚑</span></div>
+        <span class="specialty-name">Emergency &amp; Trauma Care</span>
+        <span class="specialty-desc">Immediate care for injuries &amp; emergencies.</span>
+      </a>
+      <a href="https://www.sahayoghospitals.com/ophthalmology" class="specialty-card reveal reveal-delay-3">
+        <div class="specialty-icon"><span>👁️</span></div>
+        <span class="specialty-name">Eye Care</span>
+        <span class="specialty-desc">Cataract, retina &amp; ophthalmic surgeries.</span>
+      </a>
+      <a href="https://www.sahayoghospitals.com/renal_sciences" class="specialty-card reveal">
+        <div class="specialty-icon"><span>💊</span></div>
+        <span class="specialty-name">Nephrology</span>
+        <span class="specialty-desc">Kidney disease management &amp; dialysis.</span>
+      </a>
+      <a href="https://www.sahayoghospitals.com/uro-sciences" class="specialty-card reveal reveal-delay-1">
+        <div class="specialty-icon"><span>🔬</span></div>
+        <span class="specialty-name">Urology</span>
+        <span class="specialty-desc">Urological care &amp; minimally invasive procedures.</span>
+      </a>
+      <a href="https://www.sahayoghospitals.com/onco_sciences" class="specialty-card reveal reveal-delay-2">
+        <div class="specialty-icon"><span>🎗️</span></div>
+        <span class="specialty-name">Cancer Care</span>
+        <span class="specialty-desc">Comprehensive oncology &amp; cancer treatment.</span>
+      </a>
+      <a href="https://www.sahayoghospitals.com/general-surgery" class="specialty-card reveal reveal-delay-3">
+        <div class="specialty-icon"><span>🩺</span></div>
+        <span class="specialty-name">Minimal Access Surgery</span>
+        <span class="specialty-desc">Keyhole procedures for faster recovery.</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- PATIENT JOURNEY -->
 <section class="section section-alt">
   <div class="container">
-    <div class="section-header">
-      <div class="section-header-row">
-        <div>
-          <div class="section-label">Our Expertise</div>
-          <h2 class="section-title">Excellence in Every Speciality</h2>
-          <p class="section-desc">Comprehensive care across 27+ medical specialities, delivered by experienced specialists using the latest techniques.</p>
-        </div>
-        <a href="#" class="view-all">View All Specialities →</a>
-      </div>
+    <div style="text-align:center;margin-bottom:56px;" class="reveal">
+      <span class="section-label">Your Experience</span>
+      <h2 class="section-title">Your Care Journey at Sahayog</h2>
+      <p style="color:var(--gray-600);font-size:15px;max-width:480px;margin:0 auto;">From first contact to full recovery — we're with you every step of the way.</p>
     </div>
-    <div class="spec-grid fade-in">
-      <a href="#" class="spec-card"><span class="spec-icon">🫀</span><h3>Cardiac Sciences</h3><p>Advanced heart care & intervention</p></a>
-      <a href="#" class="spec-card"><span class="spec-icon">🦴</span><h3>Orthopedics & Joint Care</h3><p>Bone, joint & muscle specialists</p></a>
-      <a href="#" class="spec-card"><span class="spec-icon">🧠</span><h3>Neuro Sciences</h3><p>Brain & nervous system care</p></a>
-      <a href="#" class="spec-card"><span class="spec-icon">🍼</span><h3>Neonatology & Pediatrics</h3><p>Expert newborn & child care</p></a>
-      <a href="#" class="spec-card"><span class="spec-icon">🔬</span><h3>Cancer Care</h3><p>Comprehensive oncology services</p></a>
-      <a href="#" class="spec-card"><span class="spec-icon">🤰</span><h3>Obstetrics & Gynecology</h3><p>Women's health & maternity</p></a>
-      <a href="#" class="spec-card"><span class="spec-icon">🫁</span><h3>Gastro Sciences</h3><p>Digestive & liver care</p></a>
-      <a href="#" class="spec-card"><span class="spec-icon">👁️</span><h3>Eye Care</h3><p>Advanced ophthalmology</p></a>
-      <a href="#" class="spec-card"><span class="spec-icon">🦷</span><h3>Dental Care</h3><p>Complete oral health services</p></a>
-      <a href="#" class="spec-card"><span class="spec-icon">🩻</span><h3>Radiology & Imaging</h3><p>State-of-the-art diagnostics</p></a>
-      <a href="#" class="spec-card"><span class="spec-icon">🏃</span><h3>Physiotherapy</h3><p>Rehabilitation & recovery</p></a>
-      <a href="#" class="spec-card"><span class="spec-icon">🚨</span><h3>Emergency & Trauma</h3><p>24/7 urgent care</p></a>
-    </div>
-  </div>
-</section>
-
-<!-- HOSPITALS -->
-<section class="section">
-  <div class="container">
-    <div class="section-header">
-      <div class="section-header-row">
-        <div>
-          <div class="section-label">Our Locations</div>
-          <h2 class="section-title">A World of Care, Just For You</h2>
-          <p class="section-desc">Three state-of-the-art facilities across India, each equipped with advanced technology and expert medical teams.</p>
-        </div>
+    <div class="journey-steps">
+      <div class="journey-step reveal">
+        <div class="journey-num">🔍</div>
+        <div class="journey-step-title">Search</div>
+        <div class="journey-step-desc">Find the right doctor or specialty for your condition with our intelligent search.</div>
       </div>
-    </div>
-    <div class="hosp-grid fade-in">
-      <div class="hosp-card">
-        <div class="hosp-header">
-          <div class="hosp-city">Gondia</div>
-          <h3>Sahayog Hospital, Gondia</h3>
-          <div class="hosp-state">Maharashtra</div>
-        </div>
-        <div class="hosp-body">
-          <div class="hosp-addr">Rani Avantibai Square, Ring Road, Gondia – 441614</div>
-          <div class="hosp-contact">
-            <a href="tel:07182250006">📞 07182 250006 / 07182 250007</a>
-            <a href="https://api.whatsapp.com/send?phone=918888001426">💬 WhatsApp: +91 88880 01426</a>
-          </div>
-          <div class="hosp-actions">
-            <a href="#" class="btn-sm btn-sm-primary">Book Appointment</a>
-            <a href="https://maps.app.goo.gl/UPe2nkz5TumTAUmU6" class="btn-sm btn-sm-outline">📍 Directions</a>
-          </div>
-        </div>
+      <div class="journey-step reveal reveal-delay-1">
+        <div class="journey-num">📅</div>
+        <div class="journey-step-title">Book</div>
+        <div class="journey-step-desc">Schedule an appointment online, by phone, or walk in at any of our 3 hospitals.</div>
       </div>
-      <div class="hosp-card">
-        <div class="hosp-header">
-          <div class="hosp-city">Gurugram</div>
-          <h3>Sahayog Hospital, Gurugram</h3>
-          <div class="hosp-state">Haryana</div>
-        </div>
-        <div class="hosp-body">
-          <div class="hosp-addr">Plot No. NH4, Opp. Huda Market, Sector 46, Gurugram – 122002</div>
-          <div class="hosp-contact">
-            <a href="tel:01244134444">📞 0124 4134444 / 9310-01-9310</a>
-          </div>
-          <div class="hosp-actions">
-            <a href="#" class="btn-sm btn-sm-primary">Book Appointment</a>
-            <a href="https://maps.app.goo.gl/yk6qRKbDY18rn8Vb8" class="btn-sm btn-sm-outline">📍 Directions</a>
-          </div>
-        </div>
+      <div class="journey-step reveal reveal-delay-2">
+        <div class="journey-num">👨‍⚕️</div>
+        <div class="journey-step-title">Consult</div>
+        <div class="journey-step-desc">Meet our specialist for diagnosis, guidance, and a personalised care plan.</div>
       </div>
-      <div class="hosp-card">
-        <div class="hosp-header">
-          <div class="hosp-city">Nagpur</div>
-          <h3>Sahayog Hospital, Nagpur</h3>
-          <div class="hosp-state">Maharashtra</div>
-        </div>
-        <div class="hosp-body">
-          <div class="hosp-addr">24A & 25, Great Nag Road, Baidyanath Square, Nagpur – 440009</div>
-          <div class="hosp-contact">
-            <a href="tel:07122754889">📞 0712 2754889</a>
-            <a href="https://api.whatsapp.com/send?phone=919226571494">💬 WhatsApp: +91 92265 71494</a>
-          </div>
-          <div class="hosp-actions">
-            <a href="#" class="btn-sm btn-sm-primary">Book Appointment</a>
-            <a href="https://maps.app.goo.gl/FZJTgMyGDmdThBqP7" class="btn-sm btn-sm-outline">📍 Directions</a>
-          </div>
-        </div>
+      <div class="journey-step reveal reveal-delay-3">
+        <div class="journey-num">💚</div>
+        <div class="journey-step-title">Recover</div>
+        <div class="journey-step-desc">Expert treatment, compassionate nursing, and seamless follow-up care.</div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- DOCTORS -->
-<section class="section section-alt">
+<section class="section">
   <div class="container">
-    <div class="section-header">
-      <div class="section-header-row">
-        <div>
-          <div class="section-label">Our Team</div>
-          <h2 class="section-title">Consult Our Specialists</h2>
-          <p class="section-desc">Highly qualified doctors with years of experience, committed to providing the best possible care.</p>
+    <div class="section-header-row">
+      <div>
+        <span class="section-label">Specialists</span>
+        <h2 class="section-title">Consult Our Specialists</h2>
+      </div>
+      <a href="https://www.sahayoghospitals.com/find_a_doctor" class="btn btn-outline">View All Doctors →</a>
+    </div>
+
+    <div class="doctors-filters">
+      <button class="filter-btn active" onclick="filterDocs(this,'all')">All</button>
+      <button class="filter-btn" onclick="filterDocs(this,'gondia')">Gondia</button>
+      <button class="filter-btn" onclick="filterDocs(this,'gurugram')">Gurugram</button>
+      <button class="filter-btn" onclick="filterDocs(this,'nagpur')">Nagpur</button>
+    </div>
+
+    <div class="doctors-grid" id="doctorsGrid">
+      <div class="doctor-card reveal" data-loc="gondia">
+        <div class="doctor-img">
+          <img src="https://www.sahayoghospitals.com/images/doctor/dr_aditya_mahajan.webp" alt="Dr. Aditya Mahajan" onerror="this.parentNode.innerHTML='👨‍⚕️'">
         </div>
-        <a href="#" class="view-all">View All Doctors →</a>
+        <div class="doctor-info">
+          <div class="doctor-hospital">Sahayog Gondia</div>
+          <div class="doctor-name">Dr. Aditya Mahajan</div>
+          <div class="doctor-specialty">Emergency &amp; Trauma Care</div>
+          <div class="doctor-quals">MBBS, MD</div>
+          <a href="https://www.sahayoghospitals.com/gondia/doctor_details/dr-aditya-mahajan" class="doctor-book">Book Appointment</a>
+        </div>
+      </div>
+      <div class="doctor-card reveal reveal-delay-1" data-loc="gondia">
+        <div class="doctor-img">
+          <img src="https://www.sahayoghospitals.com/images/doctor/dr_aaditya_jagdale.webp" alt="Dr. Aaditya Jagdale" onerror="this.parentNode.innerHTML='👨‍⚕️'">
+        </div>
+        <div class="doctor-info">
+          <div class="doctor-hospital">Sahayog Gondia</div>
+          <div class="doctor-name">Dr. Aaditya Jagdale</div>
+          <div class="doctor-specialty">Orthopedics &amp; Joint Care</div>
+          <div class="doctor-quals">MBBS, MS</div>
+          <a href="https://www.sahayoghospitals.com/gondia/doctor_details/dr-aaditya-jagdale" class="doctor-book">Book Appointment</a>
+        </div>
+      </div>
+      <div class="doctor-card reveal reveal-delay-2" data-loc="gondia">
+        <div class="doctor-img">
+          <img src="https://www.sahayoghospitals.com/images/doctor/dr_arshish_raut.webp" alt="Dr. Arshish Raut" onerror="this.parentNode.innerHTML='👨‍⚕️'">
+        </div>
+        <div class="doctor-info">
+          <div class="doctor-hospital">Sahayog Gondia</div>
+          <div class="doctor-name">Dr. Arshish Dhanraj Raut</div>
+          <div class="doctor-specialty">Cardiac Sciences</div>
+          <div class="doctor-quals">MBBS, MD, DNB</div>
+          <a href="https://www.sahayoghospitals.com/gondia/doctor_details/dr-arshish-dhanraj-raut" class="doctor-book">Book Appointment</a>
+        </div>
+      </div>
+      <div class="doctor-card reveal reveal-delay-3" data-loc="gondia">
+        <div class="doctor-img">
+          <img src="https://www.sahayoghospitals.com/images/doctor/dr_bhagwan_kamble.webp" alt="Dr. Bhagwan Kamble" onerror="this.parentNode.innerHTML='👨‍⚕️'">
+        </div>
+        <div class="doctor-info">
+          <div class="doctor-hospital">Sahayog Gondia</div>
+          <div class="doctor-name">Dr. Bhagwan Kamble</div>
+          <div class="doctor-specialty">Minimal Access Surgery</div>
+          <div class="doctor-quals">MBBS, MS, FMAS</div>
+          <a href="https://www.sahayoghospitals.com/gondia/doctor_details/dr-bhagwan-kamble" class="doctor-book">Book Appointment</a>
+        </div>
+      </div>
+      <div class="doctor-card reveal" data-loc="gondia">
+        <div class="doctor-img">
+          <img src="https://www.sahayoghospitals.com/images/doctor/dr_aastha_tandon_sontakke.webp" alt="Dr. Aastha Santakke" onerror="this.parentNode.innerHTML='👩‍⚕️'">
+        </div>
+        <div class="doctor-info">
+          <div class="doctor-hospital">Sahayog Gondia</div>
+          <div class="doctor-name">Dr. Aastha Tanddon Santakke</div>
+          <div class="doctor-specialty">Eye Care</div>
+          <div class="doctor-quals">MBBS, DNB, FCRS</div>
+          <a href="https://www.sahayoghospitals.com/gondia/doctor_details/dr-aastha-tanddon-santakke" class="doctor-book">Book Appointment</a>
+        </div>
+      </div>
+      <div class="doctor-card reveal reveal-delay-1" data-loc="gondia">
+        <div class="doctor-img">
+          <img src="https://www.sahayoghospitals.com/images/doctor/dr_anup_agrawal.webp" alt="Dr. Anup Agrawal" onerror="this.parentNode.innerHTML='👨‍⚕️'">
+        </div>
+        <div class="doctor-info">
+          <div class="doctor-hospital">Sahayog Gondia</div>
+          <div class="doctor-name">Dr. Anup Agrawal</div>
+          <div class="doctor-specialty">Neonatology &amp; Pediatrics</div>
+          <div class="doctor-quals">MBBS, DCG</div>
+          <a href="https://www.sahayoghospitals.com/gondia/doctor_details/dr-anup-agrawal" class="doctor-book">Book Appointment</a>
+        </div>
       </div>
     </div>
-    <div class="doc-grid fade-in">
-      <a href="#" class="doc-card">
-        <div class="doc-photo"><div class="doc-initials">AM</div></div>
-        <div class="doc-info">
-          <span class="doc-specialty">Emergency & Trauma Care</span>
-          <h3>Dr. Aditya Mahajan</h3>
-          <div class="qual">MBBS, MD</div>
-          <div class="location">📍 Gondia</div>
-        </div>
-      </a>
-      <a href="#" class="doc-card">
-        <div class="doc-photo"><div class="doc-initials">AA</div></div>
-        <div class="doc-info">
-          <span class="doc-specialty">Orthopedics & Joint Care</span>
-          <h3>Dr. Aaditya Jagdale</h3>
-          <div class="qual">MBBS, MS</div>
-          <div class="location">📍 Gondia</div>
-        </div>
-      </a>
-      <a href="#" class="doc-card">
-        <div class="doc-photo"><div class="doc-initials">AR</div></div>
-        <div class="doc-info">
-          <span class="doc-specialty">Cardiac Sciences</span>
-          <h3>Dr. Arshish Dhanraj Raut</h3>
-          <div class="qual">MBBS, MD, DNB</div>
-          <div class="location">📍 Gondia</div>
-        </div>
-      </a>
-      <a href="#" class="doc-card">
-        <div class="doc-photo"><div class="doc-initials">BK</div></div>
-        <div class="doc-info">
-          <span class="doc-specialty">Minimal Access Surgery</span>
-          <h3>Dr. Bhagwan Kamble</h3>
-          <div class="qual">MBBS, MS, FMAS</div>
-          <div class="location">📍 Gondia</div>
-        </div>
-      </a>
-      <a href="#" class="doc-card">
-        <div class="doc-photo"><div class="doc-initials">AT</div></div>
-        <div class="doc-info">
-          <span class="doc-specialty">Eye Care</span>
-          <h3>Dr. Aastha Tanddon Santakke</h3>
-          <div class="qual">MBBS, DNB, FCRS</div>
-          <div class="location">📍 Gondia</div>
-        </div>
-      </a>
-      <a href="#" class="doc-card">
-        <div class="doc-photo"><div class="doc-initials">CJ</div></div>
-        <div class="doc-info">
-          <span class="doc-specialty">Orthopedics & Joint Care</span>
-          <h3>Dr. Chandrashekhar Jaiswal</h3>
-          <div class="qual">MBBS, MS</div>
-          <div class="location">📍 Gondia</div>
-        </div>
-      </a>
+  </div>
+</section>
+
+<!-- HEALTH PACKAGES -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-header-row">
+      <div>
+        <span class="section-label">Preventive Care</span>
+        <h2 class="section-title">Health Packages</h2>
+        <p style="color:var(--gray-600);font-size:15px;max-width:440px;">Comprehensive checkup packages designed to keep you ahead of illness. Prevention is the best medicine.</p>
+      </div>
+      <a href="https://www.sahayoghospitals.com/gurugram/health_packages" class="btn btn-outline">View All Packages →</a>
+    </div>
+    <div class="packages-grid">
+      <div class="package-card featured reveal">
+        <div class="package-badge popular">Most Popular</div>
+        <div class="package-name">Comprehensive Health Check</div>
+        <ul class="package-features">
+          <li>Complete Blood Count</li>
+          <li>Liver &amp; Kidney Function Tests</li>
+          <li>Cardiac Risk Profile</li>
+          <li>Chest X-Ray &amp; ECG</li>
+          <li>Doctor Consultation</li>
+        </ul>
+        <a href="https://www.sahayoghospitals.com/gurugram/health_packages" class="package-cta">Book This Package</a>
+      </div>
+      <div class="package-card reveal reveal-delay-1">
+        <div class="package-badge wellness">Wellness</div>
+        <div class="package-name">Basic Wellness Check</div>
+        <ul class="package-features">
+          <li>Blood Sugar &amp; Lipid Profile</li>
+          <li>Complete Blood Count</li>
+          <li>Urine Analysis</li>
+          <li>BMI &amp; Vitals</li>
+        </ul>
+        <a href="https://www.sahayoghospitals.com/gurugram/health_packages" class="package-cta">Book This Package</a>
+      </div>
+      <div class="package-card reveal reveal-delay-2">
+        <div class="package-badge woman">Women's Health</div>
+        <div class="package-name">Women's Care Package</div>
+        <ul class="package-features">
+          <li>Hormonal Profile</li>
+          <li>Pap Smear &amp; Ultrasound</li>
+          <li>Bone Density Test</li>
+          <li>Thyroid Function</li>
+          <li>Gynaecology Consultation</li>
+        </ul>
+        <a href="https://www.sahayoghospitals.com/gurugram/health_packages" class="package-cta">Book This Package</a>
+      </div>
+      <div class="package-card reveal reveal-delay-3">
+        <div class="package-badge senior">Senior Care</div>
+        <div class="package-name">Senior Citizens Package</div>
+        <ul class="package-features">
+          <li>Cardiac &amp; Pulmonary Function</li>
+          <li>Diabetes Screening</li>
+          <li>Eye &amp; Hearing Check</li>
+          <li>Bone &amp; Joint Assessment</li>
+        </ul>
+        <a href="https://www.sahayoghospitals.com/gurugram/health_packages" class="package-cta">Book This Package</a>
+      </div>
     </div>
   </div>
 </section>
@@ -1124,148 +2022,314 @@
 <!-- TESTIMONIALS -->
 <section class="section">
   <div class="container">
-    <div class="section-header">
-      <div class="section-header-row">
-        <div>
-          <div class="section-label">Patient Stories</div>
-          <h2 class="section-title">What Our Patients Say</h2>
-          <p class="section-desc">Real stories from real patients — the greatest testament to the care we deliver.</p>
+    <div class="section-header-row">
+      <div>
+        <span class="section-label">Patient Stories</span>
+        <h2 class="section-title">What Our Patients Say</h2>
+      </div>
+      <a href="https://www.sahayoghospitals.com/testimonials" class="btn btn-outline">Explore All →</a>
+    </div>
+    <div class="testimonials-grid">
+      <a href="https://youtu.be/2PJ2WVwe80Q" class="testimonial-card reveal" target="_blank">
+        <div class="testimonial-thumb">
+          <img src="https://www.sahayoghospitals.com/images/testimonial/group_testimonials/hip_replacement_surgery_review.webp" alt="Hip replacement surgery" onerror="this.style.display='none'">
+          <div class="play-btn"></div>
         </div>
-        <a href="#" class="view-all">View All Stories →</a>
+        <div class="testimonial-body">
+          <div class="testimonial-title">Hip replacement surgery: A step towards independence</div>
+          <div class="testimonial-desc">Our orthopaedic surgeon explains how a challenging hip replacement helped a patient regain his ability to walk.</div>
+        </div>
+      </a>
+      <a href="https://youtu.be/SgCHYKXj9H4" class="testimonial-card reveal reveal-delay-1" target="_blank">
+        <div class="testimonial-thumb">
+          <img src="https://www.sahayoghospitals.com/images/testimonial/group_testimonials/35_week_preterm_baby_review.webp" alt="Preterm baby" onerror="this.style.display='none'">
+          <div class="play-btn"></div>
+        </div>
+        <div class="testimonial-body">
+          <div class="testimonial-title">A miracle of care: 35-Week preterm baby's fight for survival</div>
+          <div class="testimonial-desc">Witness the inspiring journey of a preterm baby who overcame seizures, sepsis, and mechanical ventilation.</div>
+        </div>
+      </a>
+      <a href="https://youtu.be/3plHtiycpcI" class="testimonial-card reveal reveal-delay-2" target="_blank">
+        <div class="testimonial-thumb">
+          <img src="https://www.sahayoghospitals.com/images/testimonial/group_testimonials/cataract_surgery_review.webp" alt="Cataract surgery" onerror="this.style.display='none'">
+          <div class="play-btn"></div>
+        </div>
+        <div class="testimonial-body">
+          <div class="testimonial-title">Cataract surgery that restored his vision</div>
+          <div class="testimonial-desc">Our experienced surgeons successfully performed cataract surgery, giving a patient back the gift of clear sight.</div>
+        </div>
+      </a>
+      <a href="https://youtu.be/EQM_dM2QPK8" class="testimonial-card reveal reveal-delay-3" target="_blank">
+        <div class="testimonial-thumb">
+          <img src="https://www.sahayoghospitals.com/images/testimonial/group_testimonials/nerve_repair_surgery_review.webp" alt="Nerve repair" onerror="this.style.display='none'">
+          <div class="play-btn"></div>
+        </div>
+        <div class="testimonial-body">
+          <div class="testimonial-title">Nerve repair surgery by our top specialist</div>
+          <div class="testimonial-desc">A critical nerve repair surgery saved a man and prevented him from becoming an amputee for life.</div>
+        </div>
+      </a>
+      <a href="https://youtu.be/AzmW9CVSjv8" class="testimonial-card reveal" target="_blank">
+        <div class="testimonial-thumb">
+          <img src="https://www.sahayoghospitals.com/images/testimonial/group_testimonials/prostate_care_review.webp" alt="Prostate care" onerror="this.style.display='none'">
+          <div class="play-btn"></div>
+        </div>
+        <div class="testimonial-body">
+          <div class="testimonial-title">Chronic prostate care: Expert treatment restores senior's health</div>
+          <div class="testimonial-desc">A tailored treatment plan addressed chronic prostate issues, bringing renewed quality of life.</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- VIRTUAL CARE -->
+<div class="virtual-section">
+  <div class="virtual-inner">
+    <div>
+      <span class="section-label" style="color:#90caf9;">Virtual Consultation</span>
+      <h2 class="section-title" style="color:white;margin-bottom:16px;">Healthcare From the Comfort of Your Home</h2>
+      <p class="section-sub" style="margin-bottom:32px;">Connect with Sahayog's specialists via video consultation. Get expert advice, prescriptions, and follow-up care — without leaving home.</p>
+      <a href="https://www.sahayoghospitals.com/find_a_doctor" class="btn" style="background:white;color:var(--navy);font-weight:600;padding:14px 28px;font-size:15px;border-radius:10px;">Book Virtual Consultation →</a>
+    </div>
+    <div class="virtual-card">
+      <div class="vc-step">
+        <div class="vc-num">1</div>
+        <div>
+          <div class="vc-title">Choose Your Doctor</div>
+          <div class="vc-desc">Browse our specialist panel and select the right doctor for your condition.</div>
+        </div>
+      </div>
+      <div class="vc-step">
+        <div class="vc-num">2</div>
+        <div>
+          <div class="vc-title">Pick a Time Slot</div>
+          <div class="vc-desc">Select a convenient date and time for your video consultation.</div>
+        </div>
+      </div>
+      <div class="vc-step">
+        <div class="vc-num">3</div>
+        <div>
+          <div class="vc-title">Consult via Video</div>
+          <div class="vc-desc">Connect securely with your doctor from any device, anywhere.</div>
+        </div>
+      </div>
+      <div class="vc-step">
+        <div class="vc-num">4</div>
+        <div>
+          <div class="vc-title">Receive Your Care Plan</div>
+          <div class="vc-desc">Get prescriptions, reports, and a follow-up plan directly.</div>
+        </div>
       </div>
     </div>
-    <div class="test-grid fade-in">
-      <div class="test-card">
-        <div class="test-quote">"</div>
-        <div class="test-stars">★★★★★</div>
-        <p class="test-text">After my hip replacement surgery at Sahayog, I can walk independently again for the first time in years. The orthopaedic team was exceptional — professional, caring, and always available to answer my concerns.</p>
-        <div class="test-patient">
-          <div class="test-avatar">RK</div>
-          <div>
-            <strong>Ramesh Kumar</strong>
-            <span>Hip Replacement Patient</span>
-          </div>
-        </div>
-        <a href="https://youtu.be/2PJ2WVwe80Q" class="test-video-badge">▶ Watch Story</a>
+  </div>
+</div>
+
+<!-- BLOG / HEALTH CORNER -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-header-row">
+      <div>
+        <span class="section-label">Health Corner</span>
+        <h2 class="section-title">Insights for a Healthier Life</h2>
       </div>
-      <div class="test-card">
-        <div class="test-quote">"</div>
-        <div class="test-stars">★★★★★</div>
-        <p class="test-text">Our premature baby was born at 35 weeks and faced multiple complications. The NICU team at Sahayog fought for our child every single day. We brought home a healthy baby because of their dedication.</p>
-        <div class="test-patient">
-          <div class="test-avatar">PS</div>
-          <div>
-            <strong>Priya Sharma</strong>
-            <span>NICU Patient's Mother</span>
-          </div>
+      <a href="https://www.sahayoghospitals.com/health_corner" class="btn btn-outline">View All Blogs →</a>
+    </div>
+    <div class="blog-grid">
+      <a href="https://www.sahayoghospitals.com/simple_guide_to_gallstones" class="blog-card reveal">
+        <div class="blog-img">
+          <img src="https://www.sahayoghospitals.com/images/blog/gallbladder.webp" alt="Gallstones" onerror="this.style.display='none'">
         </div>
-        <a href="https://youtu.be/SgCHYKXj9H4" class="test-video-badge">▶ Watch Story</a>
+        <div class="blog-body">
+          <span class="blog-tag">Health Care</span>
+          <div class="blog-title">A simple guide to gallstones: laparoscopic surgery, treatment and recovery tips</div>
+          <div class="blog-excerpt">Everything you need to know about gallstones — symptoms, the laparoscopic procedure, and how to recover quickly and safely.</div>
+          <div class="blog-date">8th Oct, 2025</div>
+        </div>
+      </a>
+      <a href="https://www.sahayoghospitals.com/understanding_kidney_stones" class="blog-card reveal reveal-delay-1">
+        <div class="blog-img">
+          <img src="https://www.sahayoghospitals.com/images/blog/kidney_stones.webp" alt="Kidney stones" onerror="this.style.display='none'">
+        </div>
+        <div class="blog-body">
+          <span class="blog-tag">Urology</span>
+          <div class="blog-title">Kidney stones: causes, symptoms, treatment and prevention</div>
+          <div class="blog-excerpt">Hard deposits that form when minerals in urine stick together — and how to treat and prevent them effectively.</div>
+        </div>
+      </a>
+      <a href="https://www.sahayoghospitals.com/understanding_hypertension" class="blog-card reveal reveal-delay-2">
+        <div class="blog-img">
+          <img src="https://www.sahayoghospitals.com/images/blog/hypertension.webp" alt="Hypertension" onerror="this.style.display='none'">
+        </div>
+        <div class="blog-body">
+          <span class="blog-tag">Cardiology</span>
+          <div class="blog-title">Understanding hypertension: symptoms, causes and practical tips</div>
+          <div class="blog-excerpt">High blood pressure affects millions silently. Learn what it is, what causes it, and how to keep it under control.</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATIONS -->
+<section class="section">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:48px;" class="reveal">
+      <span class="section-label">Our Network</span>
+      <h2 class="section-title">A World of Care, Just For You</h2>
+      <p style="color:var(--gray-600);font-size:15px;max-width:480px;margin:0 auto;">Three hospitals across India, with more coming. Quality healthcare where you need it most.</p>
+    </div>
+    <div class="locations-grid">
+      <div class="location-card reveal">
+        <div class="location-city">Gondia</div>
+        <div class="location-state">Maharashtra</div>
+        <div class="location-name">Sahayog Hospital, Gondia</div>
+        <div class="location-address">Rani Avantibai Square, Ring Road, Gondia - 441614</div>
+        <div class="location-phone">📞 07182 250006 / 07182 250007</div>
+        <div class="location-phone" style="font-size:13px;color:var(--teal-light);">💬 +91 88880 01426 (WhatsApp)</div>
+        <div class="location-actions">
+          <a href="https://www.sahayoghospitals.com/gondia" class="loc-btn-primary">Visit Site</a>
+          <a href="https://maps.app.goo.gl/UPe2nkz5TumTAUmU6" class="loc-btn-outline" target="_blank">Get Directions</a>
+        </div>
       </div>
-      <div class="test-card">
-        <div class="test-quote">"</div>
-        <div class="test-stars">★★★★★</div>
-        <p class="test-text">I was told by another hospital that my father needed risky open surgery. The surgeons at Sahayog performed a minimally invasive procedure and he was home in 3 days. Truly skilled hands, truly compassionate hearts.</p>
-        <div class="test-patient">
-          <div class="test-avatar">MV</div>
-          <div>
-            <strong>Meera Verma</strong>
-            <span>Relative of Surgical Patient</span>
-          </div>
+      <div class="location-card reveal reveal-delay-1">
+        <div class="location-city">Gurugram</div>
+        <div class="location-state">Haryana</div>
+        <div class="location-name">Sahayog Hospital, Gurugram</div>
+        <div class="location-address">Plot No. NH4, Opp. Huda Market, Sector 46, Gurugram, Haryana - 122002</div>
+        <div class="location-phone">📞 0124 4134444 / 9310-01-9310</div>
+        <div class="location-actions">
+          <a href="https://www.sahayoghospitals.com/gurugram" class="loc-btn-primary">Visit Site</a>
+          <a href="https://maps.app.goo.gl/yk6qRKbDY18rn8Vb8" class="loc-btn-outline" target="_blank">Get Directions</a>
         </div>
-        <a href="https://youtu.be/EQM_dM2QPK8" class="test-video-badge">▶ Watch Story</a>
+      </div>
+      <div class="location-card reveal reveal-delay-2">
+        <div class="location-city">Nagpur</div>
+        <div class="location-state">Maharashtra</div>
+        <div class="location-name">Sahayog Hospital, Nagpur</div>
+        <div class="location-address">24A &amp; 25, Great Nag Road, Baidyanath Square, Nagpur - 440009</div>
+        <div class="location-phone">📞 0712 2754889</div>
+        <div class="location-phone" style="font-size:13px;color:var(--teal-light);">💬 +91 92265 71494 (WhatsApp)</div>
+        <div class="location-actions">
+          <a href="https://www.sahayoghospitals.com/nagpur" class="loc-btn-primary">Visit Site</a>
+          <a href="https://maps.app.goo.gl/FZJTgMyGDmdThBqP7" class="loc-btn-outline" target="_blank">Get Directions</a>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- HEALTH CORNER -->
-<section class="section section-alt">
+<!-- INTERNATIONAL PATIENTS -->
+<section class="section intl-section">
   <div class="container">
-    <div class="section-header">
-      <div class="section-header-row">
-        <div>
-          <div class="section-label">Health Corner</div>
-          <h2 class="section-title">Expert Health Insights</h2>
-          <p class="section-desc">Stay informed with the latest medical knowledge from our specialist doctors.</p>
-        </div>
-        <a href="#" class="view-all">View All Articles →</a>
+    <div class="intl-grid reveal">
+      <div>
+        <span class="section-label">Global Care</span>
+        <h2 class="section-title">International Patient Services</h2>
+        <p class="section-sub" style="margin-bottom:32px;">Sahayog Hospitals welcomes patients from across the world, offering world-class medical care with dedicated international support services.</p>
+        <a href="https://www.sahayoghospitals.com/international_patients" class="btn btn-primary">Learn More →</a>
       </div>
-    </div>
-    <div class="blog-grid fade-in">
-      <a href="#" class="blog-featured">
-        <div class="blog-img blog-featured-img">🫁</div>
-        <div class="blog-content">
-          <span class="blog-tag">Health Care</span>
-          <h3>A Simple Guide to Gallstones: Laparoscopic Surgery, Treatment and Recovery Tips</h3>
-          <p>Understanding your treatment options for gallstones — from diagnosis to a full laparoscopic recovery plan curated by our specialists.</p>
-          <div class="blog-date">Oct 8, 2025</div>
+      <div class="intl-features">
+        <div class="intl-feature">
+          <div class="intl-feat-icon">🌏</div>
+          <div>
+            <div class="intl-feat-title">Global Patient Coordinators</div>
+            <div class="intl-feat-desc">Dedicated coordinators fluent in multiple languages to guide you through your care journey.</div>
+          </div>
         </div>
-      </a>
-      <div class="blog-list">
-        <a href="#" class="blog-mini">
-          <span class="blog-tag" style="font-size:10px;padding:3px 8px;">Urology</span>
-          <h3>Kidney Stones: Causes, Symptoms, Treatment and Prevention</h3>
-          <span>Sep 2025</span>
-        </a>
-        <a href="#" class="blog-mini">
-          <span class="blog-tag" style="font-size:10px;padding:3px 8px;">Cardiology</span>
-          <h3>Understanding Hypertension: Symptoms, Causes and Practical Tips for Control</h3>
-          <span>Aug 2025</span>
-        </a>
-        <a href="#" class="blog-mini">
-          <span class="blog-tag" style="font-size:10px;padding:3px 8px;">Gynaecology</span>
-          <h3>Everything You Need to Know About Laparoscopic Gynaecology</h3>
-          <span>Jul 2025</span>
-        </a>
+        <div class="intl-feature">
+          <div class="intl-feat-icon">✈️</div>
+          <div>
+            <div class="intl-feat-title">Travel &amp; Visa Assistance</div>
+            <div class="intl-feat-desc">End-to-end support with medical visa documentation and travel arrangements.</div>
+          </div>
+        </div>
+        <div class="intl-feature">
+          <div class="intl-feat-icon">🏨</div>
+          <div>
+            <div class="intl-feat-title">Accommodation Support</div>
+            <div class="intl-feat-desc">Assistance with nearby accommodation for patient and family members.</div>
+          </div>
+        </div>
+        <div class="intl-feature">
+          <div class="intl-feat-icon">📋</div>
+          <div>
+            <div class="intl-feat-title">Opinion &amp; Treatment Estimates</div>
+            <div class="intl-feat-desc">Share your medical records online for a quick expert opinion and cost estimate.</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
+
+<!-- TRUST BADGES -->
+<div class="trust-strip reveal">
+  <div class="trust-inner">
+    <div class="trust-item">
+      <div class="trust-icon">🏆</div>
+      <div>
+        <span class="trust-text-main">NABH Accredited</span>
+        <span class="trust-text-sub">Quality healthcare standards</span>
+      </div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">🚑</div>
+      <div>
+        <span class="trust-text-main">24x7 Emergency</span>
+        <span class="trust-text-sub">Always available, always ready</span>
+      </div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">👨‍⚕️</div>
+      <div>
+        <span class="trust-text-main">Expert Specialists</span>
+        <span class="trust-text-sub">150+ qualified doctors</span>
+      </div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">💙</div>
+      <div>
+        <span class="trust-text-main">Patient-First Care</span>
+        <span class="trust-text-sub">Compassion in every interaction</span>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- FAQ -->
 <section class="section">
   <div class="container">
-    <div class="section-header" style="text-align:center; margin-bottom:48px;">
-      <div class="section-label" style="justify-content:center;">Quick Answers</div>
-      <h2 class="section-title" style="text-align:center;">Frequently Asked Questions</h2>
+    <div style="text-align:center;margin-bottom:48px;" class="reveal">
+      <span class="section-label">Support</span>
+      <h2 class="section-title">Frequently Asked Questions</h2>
     </div>
-    <div class="faq-list fade-in">
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">Where are your hospitals located? <span class="arrow">+</span></button>
-        <div class="faq-a">Sahayog Hospitals currently operates in Gondia (Maharashtra), Gurugram (Haryana), and Nagpur (Maharashtra), with further expansion planned to Pune and Chandrapur.</div>
+    <div class="faq-list">
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">Where are your hospitals located?</div>
+        <div class="faq-answer">Sahayog Hospitals is currently in Gondia (Maharashtra), Gurugram (Haryana), and Nagpur (Maharashtra), and is expanding to more cities including Pune and Chandrapur.</div>
       </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">Do you provide 24×7 emergency services? <span class="arrow">+</span></button>
-        <div class="faq-a">Yes, our Emergency & Trauma Department operates 24 hours a day, 7 days a week at all our hospital locations, with a dedicated team of specialists always on standby.</div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">Do you provide 24x7 emergency services?</div>
+        <div class="faq-answer">Yes, our Emergency &amp; Trauma Department operates 24 hours a day, 7 days a week across all our hospital locations. We are always ready to provide immediate care.</div>
       </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">How can I book an appointment with a doctor? <span class="arrow">+</span></button>
-        <div class="faq-a">You can book an appointment by calling our reception, visiting the front desk, or through our website's online booking system. Online appointments are available for most specialities.</div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">How can I book an appointment with a doctor?</div>
+        <div class="faq-answer">You can book an appointment by calling our reception numbers, visiting the hospital front desk directly, or through our website using the Book Appointment option. Online appointments are available and recommended for faster service.</div>
       </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">Do you accept walk-in patients without prior appointments? <span class="arrow">+</span></button>
-        <div class="faq-a">Yes, walk-ins are welcome, especially for emergency care. However, prior booking is recommended for OPD consultations to reduce waiting time and ensure timely service.</div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">Can I book consultations online?</div>
+        <div class="faq-answer">Yes, online appointments are available via our website. You can browse our doctor panel, select a specialist, and choose a convenient time slot for either an in-person or virtual consultation.</div>
       </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">Do you provide second opinions for medical conditions? <span class="arrow">+</span></button>
-        <div class="faq-a">Absolutely. You can consult our expert specialists for a second opinion on any diagnosis or treatment recommendation. We encourage informed decision-making for all our patients.</div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">Do you provide second opinions for medical conditions?</div>
+        <div class="faq-answer">Yes, you can consult our experts for a second opinion. Please share your medical reports and history when booking, and our specialists will provide a thorough review.</div>
       </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">Do you have international patient services? <span class="arrow">+</span></button>
-        <div class="faq-a">Yes, Sahayog Hospitals welcomes international patients and provides dedicated support including appointment coordination, medical visa assistance, and a seamless care experience throughout their visit.</div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">Do you accept walk-in patients without prior appointments?</div>
+        <div class="faq-answer">Yes, walk-in patients are welcome, especially for emergencies. However, prior booking is recommended for routine consultations to ensure quicker service and minimal waiting time.</div>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- CTA SECTION -->
-<section class="cta-section">
-  <div class="container">
-    <h2>Ready to Take the First Step Towards Better Health?</h2>
-    <p>Our team of expert doctors and compassionate care staff are here for you — every step of the way.</p>
-    <div class="cta-buttons">
-      <a href="#" class="btn-primary" style="font-size:16px;padding:16px 32px;">📅 Book an Appointment</a>
-      <a href="#" class="btn-outline" style="font-size:16px;padding:16px 32px;">📞 Call Us Now</a>
     </div>
   </div>
 </section>
@@ -1274,97 +2338,237 @@
 <footer>
   <div class="footer-grid">
     <div class="footer-brand">
-      <div class="logo" style="margin-bottom:4px;">
-        <div class="logo-mark">S</div>
-        <div class="logo-text">
-          <span class="logo-name" style="color:#fff;font-size:20px;">Sahayog Hospitals</span>
-          <span class="logo-tagline" style="color:rgba(255,255,255,0.4);">Care · Compassion · Commitment</span>
-        </div>
-      </div>
-      <p class="footer-desc">Born with one purpose — to empower lives by taking quality healthcare to people who never imagined they could access it.</p>
-      <div class="footer-contact">
-        <a href="mailto:info@sahayoghospitals.com">✉ info@sahayoghospitals.com</a>
+      <span class="logo-name" style="font-family:var(--font-display);font-size:22px;">Sahayog Hospitals</span>
+      <span style="font-size:11px;color:rgba(255,255,255,0.35);letter-spacing:1px;text-transform:uppercase;">Group of Hospitals</span>
+      <p>Born with one purpose — to create institutions that empower lives by taking quality services to people who never imagined they could access them.</p>
+      <div class="footer-contact" style="margin-top:20px;">
+        <div class="footer-contact-item">📧 <a href="mailto:info@sahayoghospitals.com">info@sahayoghospitals.com</a></div>
+        <div class="footer-contact-item">📞 Gondia: <a href="tel:07182250006">07182 250006</a></div>
+        <div class="footer-contact-item">📞 Gurugram: <a href="tel:01244134444">0124 4134444</a></div>
+        <div class="footer-contact-item">📞 Nagpur: <a href="tel:07122754889">0712 2754889</a></div>
       </div>
     </div>
-    <div>
-      <div class="footer-heading">Quick Links</div>
+    <div class="footer-col">
+      <h4>Specialities</h4>
       <ul class="footer-links">
-        <li><a href="#">About Us</a></li>
-        <li><a href="#">Find A Doctor</a></li>
-        <li><a href="#">International Patients</a></li>
-        <li><a href="#">Sahayog Homecare</a></li>
-        <li><a href="#">Careers</a></li>
-        <li><a href="#">News & Events</a></li>
-        <li><a href="#">Contact Us</a></li>
+        <li><a href="https://www.sahayoghospitals.com/orthopaedics-joint-replacement">Orthopedics</a></li>
+        <li><a href="https://www.sahayoghospitals.com/cardiac-sciences">Cardiac Sciences</a></li>
+        <li><a href="https://www.sahayoghospitals.com/neuro-sciences">Neuro Sciences</a></li>
+        <li><a href="https://www.sahayoghospitals.com/gastroenterology_and_hepatobiliary_sciences">Gastro Sciences</a></li>
+        <li><a href="https://www.sahayoghospitals.com/obstetrics-gynaecology">Obstetrics &amp; Gynecology</a></li>
+        <li><a href="https://www.sahayoghospitals.com/onco_sciences">Cancer Care</a></li>
+        <li><a href="https://www.sahayoghospitals.com/emergency-critical-care">Emergency Care</a></li>
+        <li><a href="https://www.sahayoghospitals.com/specialities">View All →</a></li>
       </ul>
     </div>
-    <div>
-      <div class="footer-heading">Specialities</div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
       <ul class="footer-links">
-        <li><a href="#">Cardiac Sciences</a></li>
-        <li><a href="#">Orthopedics</a></li>
-        <li><a href="#">Neuro Sciences</a></li>
-        <li><a href="#">Cancer Care</a></li>
-        <li><a href="#">Gastro Sciences</a></li>
-        <li><a href="#">Emergency Care</a></li>
-        <li><a href="#">View All →</a></li>
+        <li><a href="https://www.sahayoghospitals.com/find_a_doctor">Find a Doctor</a></li>
+        <li><a href="https://www.sahayoghospitals.com/about_us">About Us</a></li>
+        <li><a href="https://www.sahayoghospitals.com/international_patients">International Patients</a></li>
+        <li><a href="https://www.sahayoghospitals.com/sahayog_homecare">Sahayog Homecare</a></li>
+        <li><a href="https://www.sahayoghospitals.com/health_corner">Health Corner</a></li>
+        <li><a href="https://www.sahayoghospitals.com/testimonials">Patient Stories</a></li>
+        <li><a href="https://www.sahayoghospitals.com/career">Careers</a></li>
+        <li><a href="https://www.sahayoghospitals.com/contact">Contact Us</a></li>
       </ul>
     </div>
-    <div>
-      <div class="footer-heading">Our Hospitals</div>
-      <div class="footer-hospitals">
-        <div class="footer-hosp-item">
-          <strong>Sahayog Hospital, Gondia</strong>
-          <p>Rani Avantibai Square, Ring Road, Gondia – 441614</p>
-          <a href="tel:07182250006">07182 250006</a>
-        </div>
-        <div class="footer-hosp-item">
-          <strong>Sahayog Hospital, Gurugram</strong>
-          <p>Plot No. NH4, Sector 46, Gurugram – 122002</p>
-          <a href="tel:01244134444">0124 4134444</a>
-        </div>
-        <div class="footer-hosp-item">
-          <strong>Sahayog Hospital, Nagpur</strong>
-          <p>24A & 25, Great Nag Road, Nagpur – 440009</p>
-          <a href="tel:07122754889">0712 2754889</a>
-        </div>
-      </div>
+    <div class="footer-col">
+      <h4>Our Hospitals</h4>
+      <ul class="footer-links">
+        <li><a href="https://www.sahayoghospitals.com/gondia">Gondia, Maharashtra</a></li>
+        <li><a href="https://www.sahayoghospitals.com/gurugram">Gurugram, Haryana</a></li>
+        <li><a href="https://www.sahayoghospitals.com/nagpur">Nagpur, Maharashtra</a></li>
+      </ul>
+      <h4 style="margin-top:24px;">Patient Care</h4>
+      <ul class="footer-links">
+        <li><a href="https://www.sahayoghospitals.com/gurugram/health_packages">Health Packages</a></li>
+        <li><a href="https://www.sahayoghospitals.com/faq">FAQs</a></li>
+        <li><a href="https://www.sahayoghospitals.com/news_and_events">News &amp; Events</a></li>
+      </ul>
     </div>
   </div>
   <div class="footer-bottom">
     <span>© 2026 Sahayog Group of Hospitals. All rights reserved.</span>
-    <div class="footer-bottom-links">
-      <a href="#">Privacy Policy</a>
-      <a href="#">Disclaimer</a>
-      <a href="#">Terms & Conditions</a>
-    </div>
+    <span style="display:flex;gap:20px;">
+      <a href="https://www.sahayoghospitals.com/privacy_policy">Privacy Policy</a>
+      <a href="https://www.sahayoghospitals.com/disclaimer">Disclaimer</a>
+      <a href="https://www.sahayoghospitals.com/terms_and_conditions">Terms &amp; Conditions</a>
+    </span>
   </div>
 </footer>
 
-<!-- EMERGENCY FLOAT -->
-<div class="emergency-float">
-  <div class="pulse-ring"></div>
-  <a href="tel:07182250006">🚨 Emergency: 07182 250006</a>
+<!-- AI CHAT ASSISTANT -->
+<div class="chat-fab">
+  <div class="chat-window" id="chatWindow">
+    <div class="chat-header">
+      <div class="chat-avatar">🤖</div>
+      <div class="chat-header-text">
+        <p>Sahayog Health Assistant</p>
+        <p>Ask me any health query</p>
+      </div>
+    </div>
+    <div class="chat-messages" id="chatMessages">
+      <div class="chat-msg bot">👋 Hello! I'm your Sahayog health assistant. How can I help you today?</div>
+      <div class="chat-msg bot">I can help you find doctors, book appointments, or answer health queries.</div>
+    </div>
+    <div class="chat-quick-replies">
+      <button class="chat-reply" onclick="quickReply('Find a doctor')">Find Doctor</button>
+      <button class="chat-reply" onclick="quickReply('Book appointment')">Book Appointment</button>
+      <button class="chat-reply" onclick="quickReply('Emergency contact')">Emergency</button>
+    </div>
+    <div class="chat-input-row">
+      <input class="chat-input" id="chatInput" type="text" placeholder="Type your question..." onkeydown="if(event.key==='Enter')sendChat()">
+      <button class="chat-send" onclick="sendChat()">➤</button>
+    </div>
+  </div>
+  <button class="chat-toggle" onclick="toggleChat()" title="Ask health queries">💬</button>
+</div>
+
+<!-- MOBILE STICKY BAR -->
+<div class="sticky-bar">
+  <div class="sticky-bar-inner">
+    <a href="tel:07182250006" class="sticky-btn">
+      <span>🚑</span> Emergency
+    </a>
+    <a href="https://www.sahayoghospitals.com/find_a_doctor" class="sticky-btn">
+      <span>📅</span> Book
+    </a>
+    <a href="https://www.sahayoghospitals.com/find_a_doctor" class="sticky-btn">
+      <span>👨‍⚕️</span> Doctors
+    </a>
+    <a href="https://maps.app.goo.gl/UPe2nkz5TumTAUmU6" class="sticky-btn">
+      <span>📍</span> Directions
+    </a>
+  </div>
 </div>
 
 <script>
-  function toggleFaq(btn) {
-    const item = btn.closest('.faq-item');
-    const isOpen = item.classList.contains('open');
-    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
-    if (!isOpen) item.classList.add('open');
+/* Particles */
+(function(){
+  const c = document.getElementById('particles');
+  if (!c) return;
+  for (let i = 0; i < 30; i++) {
+    const p = document.createElement('div');
+    p.className = 'particle';
+    p.style.left = Math.random() * 100 + '%';
+    p.style.top = Math.random() * 100 + '%';
+    p.style.animationDuration = (8 + Math.random() * 15) + 's';
+    p.style.animationDelay = (Math.random() * 10) + 's';
+    p.style.width = p.style.height = (2 + Math.random() * 3) + 'px';
+    c.appendChild(p);
   }
+})();
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((e, i) => {
-      if (e.isIntersecting) {
-        e.target.style.transitionDelay = (i * 0.05) + 's';
-        e.target.classList.add('visible');
-      }
-    });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+/* Navbar scroll */
+window.addEventListener('scroll', function(){
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 40);
+});
+
+/* Hero counter */
+function animateValue(el, target, duration, suffix) {
+  const start = performance.now();
+  const fmt = n => n >= 1000 ? (n/1000).toFixed(n >= 10000 ? 0 : 0) + 'K' : n;
+  function update(ts) {
+    const p = Math.min((ts - start) / duration, 1);
+    const ease = 1 - Math.pow(1 - p, 3);
+    const v = Math.round(ease * target);
+    el.textContent = target >= 1000 ? fmt(v) + suffix : v + suffix;
+    if (p < 1) requestAnimationFrame(update);
+  }
+  requestAnimationFrame(update);
+}
+
+/* Hero stats */
+setTimeout(() => {
+  animateValue(document.getElementById('stat1'), 50000, 2000, '+');
+  animateValue(document.getElementById('stat2'), 150, 1500, '+');
+  animateValue(document.getElementById('stat3'), 3, 800, '');
+}, 600);
+
+/* Scroll reveal + count-up */
+const revealObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      revealObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+const countObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const el = e.target;
+      const target = parseInt(el.dataset.target);
+      const suffix = el.dataset.suffix || '';
+      animateValue(el, target, 2000, suffix);
+      countObs.unobserve(el);
+    }
+  });
+}, { threshold: 0.3 });
+document.querySelectorAll('.count-up').forEach(el => countObs.observe(el));
+
+/* FAQ */
+function toggleFaq(item) {
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+
+/* Doctor filter */
+function filterDocs(btn, loc) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.doctor-card').forEach(card => {
+    card.style.display = (loc === 'all' || card.dataset.loc === loc) ? '' : 'none';
+  });
+}
+
+/* Chat */
+function toggleChat() {
+  const w = document.getElementById('chatWindow');
+  w.classList.toggle('open');
+}
+
+const responses = {
+  'find a doctor': 'You can browse all our doctors at <a href="https://www.sahayoghospitals.com/find_a_doctor" style="color:#90caf9;">sahayoghospitals.com/find_a_doctor</a>. Filter by specialty or location!',
+  'book appointment': 'To book an appointment, visit our <a href="https://www.sahayoghospitals.com/find_a_doctor" style="color:#90caf9;">Find a Doctor</a> page, or call us at 07182 250006 (Gondia), 0124 4134444 (Gurugram), 0712 2754889 (Nagpur).',
+  'emergency contact': '🚨 Emergency lines are available 24x7:<br>Gondia: 07182 250006<br>Gurugram: 0124 4134444<br>Nagpur: 0712 2754889',
+};
+
+function quickReply(text) {
+  addMsg(text, 'user');
+  const key = text.toLowerCase();
+  const resp = responses[key] || "Thank you for reaching out! Our team will assist you shortly. For urgent queries, please call our 24x7 helpline.";
+  setTimeout(() => addMsg(resp, 'bot'), 600);
+}
+
+function sendChat() {
+  const input = document.getElementById('chatInput');
+  const val = input.value.trim();
+  if (!val) return;
+  addMsg(val, 'user');
+  input.value = '';
+  const lc = val.toLowerCase();
+  let resp = "Thank you for your query! For specific medical advice, please consult one of our specialists. You can <a href='https://www.sahayoghospitals.com/find_a_doctor' style='color:#90caf9;'>book an appointment here</a>.";
+  if (lc.includes('doctor') || lc.includes('specialist')) resp = responses['find a doctor'];
+  else if (lc.includes('appoint') || lc.includes('book')) resp = responses['book appointment'];
+  else if (lc.includes('emergency') || lc.includes('urgent')) resp = responses['emergency contact'];
+  else if (lc.includes('location') || lc.includes('address')) resp = 'We have hospitals in Gondia, Gurugram, and Nagpur. <a href="https://www.sahayoghospitals.com/contact" style="color:#90caf9;">See all locations →</a>';
+  setTimeout(() => addMsg(resp, 'bot'), 700);
+}
+
+function addMsg(text, type) {
+  const msgs = document.getElementById('chatMessages');
+  const div = document.createElement('div');
+  div.className = 'chat-msg ' + type;
+  div.innerHTML = text;
+  msgs.appendChild(div);
+  msgs.scrollTop = msgs.scrollHeight;
+}
 </script>
-
 </body>
 </html>
